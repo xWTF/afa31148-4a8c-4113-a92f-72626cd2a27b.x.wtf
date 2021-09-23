@@ -245,7 +245,7 @@ const RightMenu = (() => {
       fn.visible(_readingModel, false);
     }
 
-    if (volantis.APlayerController.status === 'play') {
+    if (volantis.APlayerController && MainAPlayer && MainAPlayer.APlayer.status === 'play') {
       optionFlag = true;
       fn.visible(_menuMusic);
     } else {
@@ -456,7 +456,7 @@ const RightMenu = (() => {
     fn.fadeToggle(document.querySelector('#s-top'))
     fn.fadeToggle(document.querySelector('.article-meta#bottom'))
     fn.fadeToggle(document.querySelector('.prev-next'))
-    fn.fadeToggle(document.querySelector('.widget'))
+    fn.fadeToggle(document.querySelector('#l_side'))
     fn.fadeToggle(document.querySelector('#comments'))
 
     fn.toggleClass(document.querySelector('#l_main'), 'common_read')
@@ -598,18 +598,20 @@ const RightMenu = (() => {
 
 Object.freeze(RightMenu);
 
-if (document.readyState !== 'loading') {
-  RightMenu.init();
-
-  volantis.pjax.send(() => {
-    RightMenu.hideMenu();
-  })
-} else {
-  document.addEventListener("DOMContentLoaded", function () {
+volantis.requestAnimationFrame(() => {
+  if (document.readyState !== 'loading') {
     RightMenu.init();
 
     volantis.pjax.send(() => {
       RightMenu.hideMenu();
     })
-  })
-}
+  } else {
+    document.addEventListener("DOMContentLoaded", function () {
+      RightMenu.init();
+
+      volantis.pjax.send(() => {
+        RightMenu.hideMenu();
+      })
+    })
+  }
+});
