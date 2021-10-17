@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,default">
-    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0.beta.1'>
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-rc.1'>
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
@@ -20,7 +20,7 @@
   <meta content="xWTF Blog" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1632401916227" as="style">
+  <link rel="preload" href="/css/style.css?time=1634441112083" as="style">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
@@ -36,7 +36,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2021-09-23T11:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-23T12:14:23.848Z">
+<meta property="article:modified_time" content="2021-10-17T03:17:11.258Z">
 <meta property="article:author" content="xWTF">
 <meta property="article:tag" content="Windows Server 2022">
 <meta property="article:tag" content="Windows Hello">
@@ -1545,8 +1545,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1632401916227" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1632401916227"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1634441112083" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1634441112083"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -2319,7 +2319,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 <h3 id="修改好的文件"><a href="#修改好的文件" class="headerlink" title="修改好的文件"></a>修改好的文件</h3><p>如果你手上没有 IDA 或者不想自己动手，也可以直接使用我修改好的 <strong>CredentialEnrollmentManager.exe</strong>：</p>
-<span class='btn large'><a class="button" href='CredentialEnrollmentManager_patched.zip' title='点击下载'><i class='fa fa-download'></i>点击下载</a></span>
+<span class='btn large'><a class="button" href='CredentialEnrollmentManager_patched.zip' title='点击下载 (2021-10-17)'><i class='fa fa-download'></i>点击下载 (2021-10-17)</a></span>
 
 <p>我不能保证这个文件一定能工作，也不能保证它不会损坏你的计算机，你将需要自行承担可能存在的风险。如果你同意承担此风险，我会告诉你解压密码是小写的 <code>xwtf</code>。</p>
 <div class="note warning"><p><strong>注意事项：管理员账户</strong></p><p>Windows Server 的内建 Administrator 账户并不支持配置指纹解锁。如果你尝试进行配置，就会碰到这样的错误：</p><p><img src="13.webp" class="lazyload" data-srcset="13.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p><p>日常使用 Administrator 账户也不是一个好习惯，建立一个独立的 <em>User + Administrators</em> 组账户就可以使用指纹解锁了。</p><p><img src="14.webp" class="lazyload" data-srcset="14.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p></div>
@@ -2359,10 +2359,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2021-09-23T20:14:23+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2021-10-17T11:17:11+08:00">
   <a class='notlink' href="/" onclick="return false;" title="Click me!" >
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于 2021-09-23</p>
+    <p>更新于 2021-10-17</p>
   </a>
 </div>
 
@@ -2597,8 +2597,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1632401916227')
-      volantis.js('/js/message.js?time=1632401916227', () => {
+      volantis.css('/css/message.css?time=1634441112083')
+      volantis.js('/js/message.js?time=1634441112083', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2643,8 +2643,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1632401916227')
-      volantis.js('/js/message.js?time=1632401916227', () => {
+      volantis.css('/css/message.css?time=1634441112083')
+      volantis.js('/js/message.js?time=1634441112083', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -2703,8 +2703,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1632401916227')
-      volantis.js('/js/message.js?time=1632401916227', () => {
+      volantis.css('/css/message.css?time=1634441112083')
+      volantis.js('/js/message.js?time=1634441112083', () => {
         hideMessage(done);
       });
     } else {
@@ -2807,7 +2807,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       volantis.APlayerController = {};
     
-    volantis.js('/js/rightMenu.js?time=1632401916227')
+    volantis.js('/js/rightMenu.js?time=1634441112083')
   </script>
 
 
@@ -2821,19 +2821,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1632401916227")
+        volantis.js("/js/plugins/sites.js?time=1634441112083")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1632401916227")
+        volantis.js("/js/plugins/friends.js?time=1634441112083")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1632401916227")
+        volantis.js("/js/plugins/contributors.js?time=1634441112083")
       }
     
   };
@@ -2900,7 +2900,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<script src="/js/app.js?time=1632401916227.js"></script>
+<script src="/js/app.js?time=1634441112083.js"></script>
 
 
 <!-- optional -->
@@ -2913,7 +2913,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1632401916227");
+    return volantis.js("/js/search/hexo.js?time=1634441112083");
   }
 
   function loadSearchService() {
@@ -2999,8 +2999,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       // 配置 点击 触发新的锚点定位
       link.addEventListener("click", (event) => {
         event.preventDefault();
-         // 这里的 addTop 是通过错位使得 toc 自动展开.
+        // 这里的 addTop 是通过错位使得 toc 自动展开.
         volantis.scroll.to(target,{addTop: 5, observer:true})
+        // Anchor id
+        history.pushState(null, document.title, "#" + target.id);
       });
       return target;
     });
@@ -3158,7 +3160,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/","name":"给 Windows Server 2022 配置 Windows Hello 指纹解锁"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给 Windows Server 2022 配置 Windows Hello 指纹解锁","description":"","datePublished":"2021-09-23T11:00:00.000Z","dateModified":"2021-09-23T12:14:23.848Z","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/","wordCount":0,"keywords":"Windows Server 2022,Windows Hello,指纹解锁","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/","name":"给 Windows Server 2022 配置 Windows Hello 指纹解锁"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给 Windows Server 2022 配置 Windows Hello 指纹解锁","description":"","datePublished":"2021-09-23T11:00:00.000Z","dateModified":"2021-10-17T03:17:11.258Z","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/","wordCount":0,"keywords":"Windows Server 2022,Windows Hello,指纹解锁","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->
