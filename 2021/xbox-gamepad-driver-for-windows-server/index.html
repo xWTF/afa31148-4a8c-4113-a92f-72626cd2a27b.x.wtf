@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,default">
-    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-rc.1'>
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.7.7'>
   <meta name="generator" content="Hexo 6.3.0">
+  <meta name="Volantis" content="5.7.7">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
   <link rel="canonical" href="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/"/>
   <!-- 渲染优化 -->
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <meta http-equiv='x-dns-prefetch-control' content='on' />
+      <link rel='dns-prefetch' href='https://unpkg.com'>
+      <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Security-Policy" content=" default-src 'self' https:; block-all-mixed-content; base-uri 'self' https:; form-action 'self' https:; worker-src 'self' https:; connect-src 'self' https: *; img-src 'self' data: https: *; media-src 'self' https: *; font-src 'self' data: https: *; frame-src 'self' https: *; manifest-src 'self' https: *; child-src https:; script-src 'self' https: 'unsafe-inline' *; style-src 'self' https: 'unsafe-inline' *; ">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  <meta content="xWTF Blog" name="application-name">
-  <meta content="xWTF Blog" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1670300871584" as="style">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <!-- import head_begin begin -->
+  <!-- import head_begin end -->
+  <!-- Custom Files headBegin begin-->
+  
+  <!-- Custom Files headBegin end-->
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
+  <!-- feed -->
   <!-- 页面元数据 -->
   <title>给 Windows Server 移植 Xbox 手柄驱动 - xWTF Blog</title>
   <meta name="keywords" content="Windows Server,Xbox,Bluetooth,Driver,null">
-  <meta name="description" content="前段时间迁移到了 Windows Server 2022，使用体验还算不错。不过，最近又发现一个新问题：Xbox 手柄没有驱动。 究其原因，还是 Windows Server 缺少 Xbox 相关的一整套软件，包括 Xbox APP、在线游戏服务、驱动服务等。只要想办法将桌面 Windows 的驱动程序移植过来，就可以正常使用了。 在 Google 上找了一圈，未能找到可借鉴的资料。这里记述的操作">
+  <meta desc name="description" content="xWTF Blog - xWTF - xWTF Blog">
+  
 <meta property="og:type" content="article">
 <meta property="og:title" content="给 Windows Server 移植 Xbox 手柄驱动">
 <meta property="og:url" content="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/index.html">
 <meta property="og:site_name" content="xWTF Blog">
 <meta property="og:description" content="前段时间迁移到了 Windows Server 2022，使用体验还算不错。不过，最近又发现一个新问题：Xbox 手柄没有驱动。 究其原因，还是 Windows Server 缺少 Xbox 相关的一整套软件，包括 Xbox APP、在线游戏服务、驱动服务等。只要想办法将桌面 Windows 的驱动程序移植过来，就可以正常使用了。 在 Google 上找了一圈，未能找到可借鉴的资料。这里记述的操作">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
+<meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2021-12-15T04:00:00.000Z">
 <meta property="article:modified_time" content="2021-12-15T05:58:43.491Z">
 <meta property="article:author" content="xWTF">
@@ -43,26 +50,11 @@
 <meta property="article:tag" content="Bluetooth">
 <meta property="article:tag" content="Driver">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
-  <!-- feed -->
-  <!-- import meta -->
-  <!-- link -->
-  <!-- import link -->
+<meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
     /* 首屏样式 */
     #safearea {
   display: none;
-}
-/* 
-  * Workaround for Chrome bug, part 1
-  * Chunk rendering for all but the first article.
-  * /layout/_partial/scripts/content-visibility-scroll-fix.ejs
-*/
-.post-story + .post-story,
-article + article,
-.post-wrapper + .post-wrapper {
-  content-visibility: auto;
-  contain-intrinsic-size: 10px 500px;
 }
 :root {
   --color-site-body: #f4f4f4;
@@ -82,10 +74,11 @@ article + article,
   --color-h6: #666;
   --color-p: #444;
   --color-list: #666;
-  --color-list-hl: #36ac91;
+  --color-list-hl: #30ad91;
   --color-meta: #888;
   --color-read-bkg: #e0d8c8;
   --color-read-post: #f8f1e2;
+  --color-copyright-bkg: #f5f5f5;
 }
 * {
   box-sizing: border-box;
@@ -94,6 +87,22 @@ article + article,
   outline: none;
   margin: 0;
   padding: 0;
+}
+*::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+*::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #3dd9b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
 }
 html {
   color: var(--color-text);
@@ -110,7 +119,7 @@ html >::-webkit-scrollbar-track-piece {
   background: transparent;
 }
 html >::-webkit-scrollbar-thumb {
-  background: #44d7b6;
+  background: #3dd9b6;
   cursor: pointer;
   border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -139,7 +148,7 @@ body.modal-active {
   }
 }
 a {
-  color: #1b79c4;
+  color: #2092ec;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.28s ease;
@@ -710,14 +719,14 @@ button {
 }
 @font-face {
   font-family: 'UbuntuMono';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
 }
 @font-face {
   font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf");
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
@@ -921,7 +930,7 @@ button {
   -moz-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
   -ms-transition: all 0.28s ease;
-  color: #44d7b6;
+  color: #3dd9b6;
 }
 .l_header .switcher >li >a:hover {
   border: none;
@@ -1101,7 +1110,7 @@ ul.m-pc >li>a {
 }
 ul.m-pc >li>a:active,
 ul.m-pc >li>a.active {
-  border-bottom: 2px solid #44d7b6;
+  border-bottom: 2px solid #3dd9b6;
 }
 ul.m-pc li:hover >ul.list-v,
 ul.list-v li:hover >ul.list-v {
@@ -1240,7 +1249,7 @@ ul.list-v >li>a:hover {
 }
 .l_header ul.nav-list-h>li >a:active,
 .l_header ul.nav-list-h>li >a.active {
-  color: #44d7b6;
+  color: #3dd9b6;
 }
 .l_header ul.nav-list-h>li:hover>a {
   color: var(--color-list-hl);
@@ -1546,8 +1555,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1670300871584" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1670300871584"></noscript>
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1576,7 +1585,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     '<div class="kill-ie">'+
         `<span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>`+
         `<span class="kill-c">微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</span><br/>`+
-        `<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>`+
+        `<a target="_blank" rel="noopener" href="https://blogs.windows.com/windowsexperience/2021/05/19/the-future-of-internet-explorer-on-windows-10-is-in-microsoft-edge/"><strong>了解详情 ></strong></a>`+
     '</div>');
 </script>
 
@@ -1614,7 +1623,44 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <script>
   /************这个文件存放不需要重载的全局变量和全局函数*********/
   window.volantis = {}; // volantis 全局变量
+  volantis.debug = "env"; // 调试模式
   volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
+
+  volantis.GLOBAL_CONFIG ={
+    debug: "env",
+    cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
+    default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
+    lastupdate: new Date(1670301512282),
+    sidebar: {
+      for_page: ["blogger","category","tagcloud"],
+      for_post: ["toc"],
+      webinfo: {
+        lastupd: {
+          enable: true,
+          friendlyShow: true
+        },
+        runtime: {
+          data: "2020/01/01",
+          unit: "天"
+        }
+      }
+    },
+    plugins: {
+      message: {"enable":true,"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/css/iziToast.min.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/js/iziToast.min.js","icon":{"default":"fa-solid fa-info-circle light-blue","quection":"fa-solid fa-question-circle light-blue"},"time":{"default":5000,"quection":20000},"position":"topRight","transitionIn":"bounceInLeft","transitionOut":"fadeOutRight","titleColor":"var(--color-text)","messageColor":"var(--color-text)","backgroundColor":"var(--color-card)","zindex":2147483647,"copyright":{"enable":true,"title":"知识共享许可协议","message":"请遵守 CC BY-NC-SA 4.0 协议。","icon":"far fa-copyright light-blue"},"aplayer":{"enable":true,"play":"fa-solid fa-play","pause":"fa-solid fa-pause"},"rightmenu":{"enable":true,"notice":true}},
+      fancybox: {"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.umd.js"},
+      
+      
+      rightmenu: {
+        faicon: "fa",
+        layout: ["home","darkmode"],
+        music_alwaysShow: true,
+        customPicUrl: {"enable":false,"old":null,"new":null}
+      },
+      
+      
+    }
+  }
+
   /******************** volantis.EventListener ********************************/
   // 事件监听器 see: /source/js/app.js
   volantis.EventListener = {}
@@ -1756,12 +1802,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     error: new RunItem(),
     send: new RunItem(),
   };
-  volantis.pjax = {
-    ...volantis.pjax,
+  volantis.pjax = Object.assign(volantis.pjax, {
     push: volantis.pjax.method.complete.push,
     error: volantis.pjax.method.error.push,
     send: volantis.pjax.method.send.push,
-  };
+  });
+  /******************** RightMenu ********************************/
+  // volantis.rightmenu.handle(callBack[,"callBackName"]) 外部菜单项控制
+  // 可在 volantis.mouseEvent 处获取右键事件
+  volantis.rightmenu = {};
+  volantis.rightmenu.method = {
+    handle: new RunItem(),
+  }
+  volantis.rightmenu = Object.assign(volantis.rightmenu, {
+    handle: volantis.rightmenu.method.handle.push,
+  });
   /********************  Dark Mode  ********************************/
   // /layout/_partial/scripts/darkmode.ejs
   // volantis.dark.mode 当前模式 dark or light
@@ -1771,13 +1826,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.dark.method = {
     toggle: new RunItem(),
   };
-  volantis.dark = {
-    ...volantis.dark,
+  volantis.dark = Object.assign(volantis.dark, {
     push: volantis.dark.method.toggle.push,
-  };
+  });
   /********************  Message  ********************************/
-  // /layout/_plugins/message/script.ejs
-  // volantis.message
+  // VolantisApp.message
   /********************  isMobile  ********************************/
   // /source/js/app.js
   // volantis.isMobile
@@ -1842,7 +1895,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.import = {
     jQuery: () => {
       if (typeof jQuery == "undefined") {
-        return volantis.js("https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js")
+        return volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/jquery/dist/jquery.min.js")
       } else {
         return new Promise(resolve => {
           resolve()
@@ -1885,10 +1938,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     engine: new RunItem(),
     unengine: new RunItem(),
   };
-  volantis.scroll = {
-    ...volantis.scroll,
+  volantis.scroll = Object.assign(volantis.scroll, {
     push: volantis.scroll.engine.push,
-  };
+  });
   // 滚动条距离顶部的距离
   volantis.scroll.getScrollTop = () =>{
     let scrollPos;
@@ -1915,6 +1967,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         // } else {
         //   console.log("向上滚动");
         // }
+        // 注销过期的unengine未滚动事件
+        volantis.scroll.unengine.list=[]
         volantis.scroll.engine.start();
       }else{
         volantis.scroll.unengine.start();
@@ -1924,8 +1978,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     volantis.requestAnimationFrame(loop)
   }
   volantis.scroll.handleScrollEvents()
+  volantis.scroll.ele = null;
   // 触发页面滚动至目标元素位置
-  volantis.scroll.to = (ele, option = {}) =>{
+  volantis.scroll.to = (ele, option = {}) => {
+    if (!ele) return;
+    volantis.scroll.ele = ele;
     // 默认配置
     opt = {
       top: ele.getBoundingClientRect().top + document.documentElement.scrollTop,
@@ -1942,41 +1999,77 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       opt.top += option.addTop
     }
     if (!("observerDic" in option)) {
-      option.observerDic = 25
+      option.observerDic = 100
     }
     // 滚动
     window.scrollTo(opt);
     // 监视器
-    // 监视并矫正元素滚动到指定位置 
-    // 目前用于处理 toc 部分 lazyload 引起的 cls 导致的定位失败问题
+    // 监视并矫正元素滚动到指定位置
+    // 用于处理 lazyload 引起的 cls 导致的定位失败问题
+    // option.observer = false
     if (option.observer) {
-      volantis.scroll.unengine.push(()=>{
-        let me = ele.getBoundingClientRect().top
-        if(!(me >= -option.observerDic && me <= option.observerDic)){
-          volantis.scroll.to(ele, option)
-        }else{
-          volantis.scroll.unengine.remove("unengineObserver")
+      setTimeout(() => {
+        if (volantis.scroll.ele != ele) {
+          return
         }
-      },"unengineObserver")
+        volantis.scroll.unengine.push(() => {
+          let me = ele.getBoundingClientRect().top
+          if(!(me >= -option.observerDic && me <= option.observerDic)){
+            volantis.scroll.to(ele, option)
+          }
+          volantis.scroll.unengine.remove("unengineObserver")
+        },"unengineObserver")
+      },1000)
+    }
+  }
+  /********************** Content Visibility ********************************/
+  // 见 source/css/first.styl 如果遇到任何问题 删除 .post-story 即可
+  // 一个元素被声明 content-visibility 属性后 如果元素不在 viewport 中 浏览器不会计算其后代元素样式和属性 从而节省 Style & Layout 耗时
+  // content-visibility 的副作用: 锚点失效 等等(实验初期 暂不明确), 使用此方法清除样式
+  volantis.cleanContentVisibility = ()=>{
+    if (document.querySelector(".post-story")) {
+      console.log("cleanContentVisibility");
+      document.querySelectorAll(".post-story").forEach(e=>{
+        e.classList.remove("post-story")
+      })
     }
   }
   /******************************************************************************/
   /******************************************************************************/
+  /******************************************************************************/
+  //图像加载出错时的处理
+  function errorImgAvatar(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg";
+    img.onerror = null;
+  }
+  function errorImgCover(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg";
+    img.onerror = null;
+  }
+  /******************************************************************************/
 </script>
-  <!-- Custom Files head begin-->
+
+  <!-- import head_end begin -->
+  <!-- import head_end end -->
+  <!-- Custom Files headEnd begin-->
   
-  <!-- Custom Files head end-->
+  <!-- Custom Files headEnd end-->
 </head>
   <body itemscope itemtype="http://schema.org/WebPage">
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+    <!-- import body_begin begin-->
+    <!-- import body_begin end-->
+    <!-- Custom Files bodyBegin begin-->
+    
+    <!-- Custom Files bodyBegin end-->
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
       <p class="title"></p>
       <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
-        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
         
-          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
         
       </ul>
     </div>
@@ -2000,7 +2093,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/" title="博客"
                   
                   
@@ -2017,7 +2110,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/categories/" title="分类"
                   
                   
@@ -2034,7 +2127,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/tags/" title="标签"
                   
                   
@@ -2051,7 +2144,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/archives/" title="归档"
                   
                   
@@ -2068,7 +2161,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/about/" title="关于"
                   
                   
@@ -2084,26 +2177,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 				</ul>
 			</div>
-
+      
       <div class="m_search">
         <form name="searchform" class="form u-search-form">
-          <i class="icon fas fa-search fa-fw"></i>
+          <i class="icon fa-solid fa-search fa-fw"></i>
           <input type="text" class="input u-search-input" placeholder="搜索" />
         </form>
       </div>
+      
 
 			<ul class='switcher nav-list-h m-phone'>
 				
-					<li><a class="s-search fas fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
 				
 				<li>
-          <a class="s-menu fas fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
           <ul class="menu-phone list-v navigation white-box">
             
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/" title="博客"
                   
                   
@@ -2120,7 +2214,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/categories/" title="分类"
                   
                   
@@ -2137,7 +2231,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/tags/" title="标签"
                   
                   
@@ -2154,7 +2248,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/archives/" title="归档"
                   
                   
@@ -2171,7 +2265,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/about/" title="关于"
                   
                   
@@ -2204,7 +2298,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
       <div id="none" class='cover-wrapper post blank' style="display: none;">
         
-  <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
+  <div class='cover-bg lazyload placeholder' data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
 
 
         <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
@@ -2222,12 +2316,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="xWTF Blog">
   </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="xWTF Blog">
+    <meta itemprop="description" content="">
+  </span>
   
 
 
   
     <span hidden>
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
   <div class="article-meta" id="top">
@@ -2246,7 +2344,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
             <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2021-12-15T12:00:00+08:00">
-  <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+  <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
     <p>2021-12-15</p>
   </a>
@@ -2257,13 +2355,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
             
   <div class="new-meta-item wordcount">
-    <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+    <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
       <p>字数：1.5k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
-    <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+    <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
       <p>时长：5 分钟</p>
     </a>
@@ -2286,21 +2384,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>究其原因，还是 Windows Server 缺少 Xbox 相关的一整套软件，包括 Xbox APP、在线游戏服务、驱动服务等。只要想办法将桌面 Windows 的驱动程序移植过来，就可以正常使用了。</p>
 <p>在 Google 上找了一圈，未能找到可借鉴的资料。这里记述的操作完全基于我对 Windows 系统的理解，你需要自行承担这些操作可能带来的风险。</p>
 <h3 id="有线连接"><a href="#有线连接" class="headerlink" title="有线连接"></a>有线连接</h3><p>以 Xbox One 手柄为例，使用 <strong>有线连接</strong> 会直接报没有驱动的错误：</p>
-<p><img src="1.webp" class="lazyload" data-srcset="1.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/1.webp" class="lazyload" data-srcset="/1.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>如果你能忍受有线连接，其实不必大费周折。只要 在 <strong>Microsoft Update Catalog</strong> 中 <a target="_blank" rel="noopener" href="https://www.catalog.update.microsoft.com/Search.aspx?q=xbox">搜索 “xbox”</a> 就能找到 <a target="_blank" rel="noopener" href="https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=0396c92c-ca8c-486a-9674-e2cc4f401860">能用的驱动包</a>。</p>
 <p>如果下载有困难，我也在此提供一个副本，你可以点击 <a href="20844731_e19c69388a4a59f2e752f92ebaacbf3cddf3e4fd.cab">这里</a> 下载。该副本已经过 Microsoft 数字签名，请先验证签名再使用。</p>
 <p>直接解压 cab 文件，然后使用设备管理器安装驱动即可。虽然是 <strong>Xbox Peripherals (legacy)</strong> 驱动，但它工作的很好。</p>
-<p><img src="2.webp" class="lazyload" data-srcset="2.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/2.webp" class="lazyload" data-srcset="/2.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <h3 id="无线连接？"><a href="#无线连接？" class="headerlink" title="无线连接？"></a>无线连接？</h3><p>我不喜欢有线连接。目前，Xbox 手柄的无线连接方式有两种：蓝牙或专用的 Xbox Wireless 接收器。</p>
 <p>在本文中我只解决了蓝牙驱动问题，至于 Xbox Wireless 接收器，我只能说 “不太可能”，因为其中涉及太多的驱动和软件包了，几乎得将整套 Xbox 软件栈移植过来。如果你能移植成功，欢迎联系我共同交流。</p>
 <div class="note info"><p>如果你不知道怎么通过蓝牙连接 Xbox 手柄，不妨 <a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=xbox+gamepad+bluetooth">问问 YouTube</a></p></div>
 
 <p>如果采用 <strong>蓝牙连接</strong>，则配对成功后会出现一个名为 <strong>Xbox Bluetooth Gamepad</strong> 的 <strong>其他设备</strong>，虽然 “运转正常”，手柄却并不能正常工作。此时手柄的指示灯会继续闪烁。</p>
-<p><img src="3.webp" class="lazyload" data-srcset="3.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/3.webp" class="lazyload" data-srcset="/3.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>在桌面版中，负责蓝牙 Xbox 手柄驱动是 <code>xinputhid.inf</code>。而这个组件并不存在于 Server 中。让我们先看看桌面版系统中的驱动：</p>
-<p><img src="4.webp" class="lazyload" data-srcset="4.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/4.webp" class="lazyload" data-srcset="/4.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>很不幸，这里只有 <code>xinputhid.inf</code> 和 <code>xinputhid.sys</code> 两个文件，不仅没有 CAT，连 SYS 文件也没有独立签名。如果你熟悉 Windows 系统，就会马上意识到这种驱动是绝对无法在开着 SecureBoot 的环境下加载的。</p>
-<p><img src="5.webp" class="lazyload" data-srcset="5.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/5.webp" class="lazyload" data-srcset="/5.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>我也尝试过采用自己的证书和一些古旧的证书（2015年前）对驱动进行签名然后安装，但是这并不是一个优雅的方案。这里，我将提供一个手工移植驱动的 (相对优雅的) 方案。</p>
 <h3 id="提取-XInputHID-驱动"><a href="#提取-XInputHID-驱动" class="headerlink" title="提取 XInputHID 驱动"></a>提取 XInputHID 驱动</h3><div class="note info"><p>这部分只是记录我的操作思路，如果你不想读，可以直接跳到后面的 “安装” 一节</p></div>
 
@@ -2308,10 +2406,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>然后，我们要解决的最大的问题就是代码签名。这个驱动并没有单独的 Catalog 文件，而是和其他驱动共同打包在一个较大的 Catalog 中。</p>
 <p>众所周知，Windows 的 Catalog 数据存在于两个地方：<code>%WINDIR%\System32\CatRoot</code> 和 <code>%WINDIR%\System32\catroot2</code>，前者存放原始 CAT 文件，后者存放的是包含所有 CAT 文件信息的 ESE 数据库。</p>
 <p>要从 <code>CatRoot</code> 的上千个 CAT 文件中手动翻找 Hash 明显是不合理的，因此我们偷个懒采用 Velociraptor 的 <code>authenticode()</code> 函数直接查找 SYS 文件的签名：</p>
-<p><img src="6.webp" class="lazyload" data-srcset="6.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/6.webp" class="lazyload" data-srcset="/6.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>现在我们知道 <code>Microsoft-Windows-Client-Desktop-Required-Package~31bf3856ad364e35~amd64~~10.0.19041.1288.cat</code> 是需要的文件之一了。但是事情还没有结束，INF 文件和 SYS 文件的签名并没有被打包在同一个 CAT 中，我们还需要找到 INF 文件对应的 CAT。</p>
 <p>由于 <code>authenticode()</code> 函数对 INF 文件是不工作的，这里我们再计算 INF 文件的 <code>SHA-1</code> 和 <code>SHA-256</code> 哈希值，打开 <code>catroot2</code> 下的 <code>catdb</code> 数据库，在 <code>HashCatNameTableSHA1</code> 和 <code>HashCatNameTableSHA256</code> 表中查找：</p>
-<p><img src="7.webp" class="lazyload" data-srcset="7.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/7.webp" class="lazyload" data-srcset="/7.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>然后将 <code>HashCatNameTable_CatNameCol</code> 的值转换为字符串，得到 <code>Microsoft-Windows-Client-Desktop-Required-Package~31bf3856ad364e35~amd64~~10.0.19041.1052.cat|Microsoft-Windows-Client-Desktop-Required-Package~31bf3856ad364e35~amd64~~10.0.19041.1288.cat|</code>，这样我们就拿到两个需要的 CAT 文件了。</p>
 <p>接下来，由于我们要直接移植驱动，不走 PNP，还得导出这些注册表项：</p>
 <ul>
@@ -2319,9 +2417,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>INF 注册：<code>HKLM\SYSTEM\DriverDatabase\DriverInfFiles\xinputhid.inf</code></li>
 </ul>
 <p>并且还要查看 INF 中注册的 VID、PID，从 <code>HKLM\SYSTEM\DriverDatabase\DeviceIds\</code> 导出对应的注册信息，以便操作系统能识别这些设备。</p>
-<p><img src="8.webp" class="lazyload" data-srcset="8.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/8.webp" class="lazyload" data-srcset="/8.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>最后，顺便将 <code>%WINDIR%\INF\xinputhid.PNF</code> 也复制出来 (BTW，它不需要数字签名)，这样我们就准备好需要的所有文件了：</p>
-<p><img src="9.webp" class="lazyload" data-srcset="9.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/9.webp" class="lazyload" data-srcset="/9.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <h3 id="安装-XInputHID-驱动"><a href="#安装-XInputHID-驱动" class="headerlink" title="安装 XInputHID 驱动"></a>安装 XInputHID 驱动</h3><p>如果你不想自己提取，可以用我从 Windows 10 21H1 (19043.1052) 中提取的驱动文件。</p>
 <span class='btn large'><a class="button" href='xinputhid.zip' title='点击下载 (2021-12-15)'><i class='fa fa-download'></i>点击下载 (2021-12-15)</a></span>
 
@@ -2329,7 +2427,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>首先，我们需要安装 Catalog 文件。使用 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/signtool">SignTool</a> 进行安装 (BTW，你需要有管理员权限)：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">signtool catdb /v <span class="string">&quot;Microsoft-Windows-Client-Desktop-Required-Package~31bf3856ad364e35~amd64~~10.0.19041.1052.cat&quot;</span></span><br><span class="line">signtool catdb /v <span class="string">&quot;Microsoft-Windows-Client-Desktop-Required-Package~31bf3856ad364e35~amd64~~10.0.19041.1288.cat&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="10.webp" class="lazyload" data-srcset="10.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/10.webp" class="lazyload" data-srcset="/10.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>然后，使用 <a target="_blank" rel="noopener" href="https://github.com/M2Team/NSudo">NSudo</a> 或 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/psexec">PSExec</a> 或者其他你喜欢的工具拉起一个 <strong>TrustedInstaller</strong> 或更高权限的命令提示符，复制这些文件：</p>
 <ul>
 <li><code>xinputhid.inf_amd64_b01c6ccf7f1e23b6/</code> -&gt; <code>C:\Windows\System32\DriverStore\FileRepository</code></li>
@@ -2338,34 +2436,39 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><code>xinputhid.inf_amd64_b01c6ccf7f1e23b6/xinputhid.sys</code> -&gt; <code>C:\Windows\System32\drivers</code></li>
 </ul>
 <p>最后，使用同样的高权限用户导入 <code>xinputhid.reg</code> 文件，这样就算安装完成了。</p>
-<p><img src="11.webp" class="lazyload" data-srcset="11.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/11.webp" class="lazyload" data-srcset="/11.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>通过蓝牙连接你的 Xbox 手柄，此时你应该会看到一个 <code>Bluetooth XINPUT compatible input device</code> 设备，并且 Xbox 手柄上的灯变为常亮。现在，可以开始游戏了 :)</p>
-<p><img src="12.webp" class="lazyload" data-srcset="12.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
-
+<p><img src="/12.webp" class="lazyload" data-srcset="/12.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 
   </div>
   
   
     
     <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
       
+       <!-- 相关文章 -->
       
+      <!-- 版权声明组件 -->
       
-        <div class='copyright'>
-          <blockquote>
-            
+        
+          <div class='copyright'>
+            <blockquote>
               
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+                
+                  <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
 
+                
               
-            
+                
+                  <p>本文的链接是：<a href="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/">https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/</a></p>
+                
               
-                <p>本文的链接是：<a href=https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/</a></p>
-              
-            
-          </blockquote>
-        </div>
+            </blockquote>
+          </div>
+        
       
+      <!-- 打赏组件 -->
       
     </div>
   
@@ -2378,7 +2481,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           <div class="new-meta-item date" itemprop="dateModified" datetime="2021-12-15T13:58:43+08:00">
-  <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+  <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于 2021-12-15</p>
   </a>
@@ -2410,7 +2513,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
       
         <a class='next' href='/2021/fingerprint-unlocking-for-windows-server-2022/'>
-          <p class='title'>给 Windows Server 2022 配置 Windows Hello 指纹解锁<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='title'>给 Windows Server 2022 配置 Windows Hello 指纹解锁<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>最近从 Windows 10 迁移到了 Windows Server 2022，不过我在设置指纹解锁时发现添加按钮是灰色的，并且系统显示了错误提示 “Windows Hello 在 Window...</p>
         </a>
       
@@ -2433,13 +2536,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
+
   
     
     
+      
+    
+  
 
 
+<div class="widget-sticky pjax">
 
-  <section class="widget toc-wrapper shadow desktop mobile pjax" id="toc-div" >
+  
+  
+
+
+  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
     
   <header>
     
@@ -2454,6 +2566,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </section>
 
   
+
+</div>
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
@@ -2486,6 +2600,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- pjax占位 -->
   </div>
 
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <!-- Custom Files side begin -->
   
@@ -2501,7 +2618,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="给 Windows Server 移植 Xbox 手柄驱动";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -2581,7 +2697,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </footer>
 
 
-        <a id="s-top" class="fas fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
       </div>
     </div>
     <div>
@@ -2600,7 +2716,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   
-  volantis.css("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css");
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fortawesome/fontawesome-free/css/all.min.css");
   
   
   
@@ -2611,150 +2727,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <!-- internal -->
 
-
-  <script>
-  volantis.message = (title, message, option = {}, done = null) => {
-    if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1670300871584')
-      volantis.js('/js/message.js?time=1670300871584', () => {
-        tozashMessage(title, message, option, done);
-      });
-    } else {
-      tozashMessage(title, message, option, done);
-    }
-
-    function tozashMessage(title, message, option, done) {
-      const {
-        icon,
-        time,
-        position,
-        transitionIn,
-        transitionOut,
-        messageColor,
-        titleColor,
-        backgroundColor,
-        zindex,
-        displayMode
-      } = option;
-      iziToast.show({
-        layout: '2',
-        icon: 'Fontawesome',
-        closeOnEscape: 'true',
-        displayMode: displayMode || 'replace',
-        transitionIn: transitionIn || 'bounceInLeft',
-        transitionOut: transitionOut || 'fadeOutRight',
-        messageColor: messageColor || 'var(--color-text)',
-        titleColor: titleColor || 'var(--color-text)',
-        backgroundColor: backgroundColor || 'var(--color-card)',
-        zindex: zindex || '2147483647',
-        icon: icon || 'fas fa-info-circle light-blue',
-        timeout: time || '5000',
-        position: position || 'topRight',
-        title: title,
-        message: message,
-        onClosed: () => {
-          if(done) done();
-        },
-      });
-    }
-  };
-
-  volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
-    if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1670300871584')
-      volantis.js('/js/message.js?time=1670300871584', () => {
-        tozashQuestion(title, message, option, success, cancel, done);
-      });
-    } else {
-      tozashQuestion(title, message, option, success, cancel, done);
-    }
-
-    function tozashQuestion(title, message, option, success, cancel, done) {
-      const {
-        icon,
-        time,
-        position,
-        transitionIn,
-        transitionOut,
-        messageColor,
-        titleColor,
-        backgroundColor,
-        zindex
-      } = option;
-      iziToast.question({ 
-        id: 'question',
-        icon: 'Fontawesome',
-        close: false,
-        overlay: true,
-        displayMode: 'once',
-        position: 'center',
-        messageColor: messageColor || 'var(--color-text)',
-        titleColor: titleColor || 'var(--color-text)',
-        backgroundColor: backgroundColor || 'var(--color-card)',
-        zindex: zindex || '2147483647',
-        icon: icon || 'fas fa-question-circle light-blue',
-        timeout: time || '20000',
-        title: title,
-        message: message,
-        buttons: [
-          ['<button><b>是</b></button>', (instance, toast) => {
-            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
-            if(success) success(instance, toast)
-          }],
-          ['<button><b>否</b></button>', (instance, toast) => {
-            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
-            if(cancel) cancel(instance, toast)
-          }]
-        ],
-        onClosed: (instance, toast, closedBy) => {
-          if(done) done(instance, toast, closedBy);
-        }
-      });
-    }
-  }
-
-  volantis.hideMessage = (done = null) => {
-    const toast = document.querySelector('.iziToast');
-    if (!toast) {
-      if(done) done()
-      return;
-    }
-    
-    if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1670300871584')
-      volantis.js('/js/message.js?time=1670300871584', () => {
-        hideMessage(done);
-      });
-    } else {
-      hideMessage(done);
-    }
-
-    function hideMessage(done) {
-      iziToast.hide({}, toast);
-      if(done) done();
-    }
-  }
-
-  volantis.messageCopyright = {
-    enable: 'true' === 'true' ? true : false,
-    title: '知识共享许可协议',
-    message: '请遵守 CC BY-NC-SA 4.0 协议。',
-    icon: 'far fa-copyright light-blue'
-  }
-
-  volantis.messageRightMenu = {
-    enable: 'true' === 'true' ? true : false,
-  }
-
-  if(volantis.messageCopyright.enable) {
-    document.body.oncopy = function(){
-      volantis.message(volantis.messageCopyright.title, volantis.messageCopyright.message, {
-        icon: volantis.messageCopyright.icon
-      });
-    }; 
-  }
-</script>
-
+<script src="/js/app.js"></script>
 
 
 
@@ -2786,6 +2759,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
           <i class='fa fa-cut fa-fw mR12'></i> 剪切文本
         </span>
+        
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='searchWord'>
+          
+          <i class='fa fa-search fa-fw'></i> 站内搜索
+        </span>
+        
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='openTab'>
           
           <i class='fa fa-external-link-square-alt fa-fw mR12'></i> 在新标签页打开
@@ -2812,21 +2791,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
     </ul>
   </div>
-  <script>
-    volantis.rightMenu = {};
-    volantis.rightMenu.faicon = 'fa' || 'fa';
-    
-    
-      volantis.rightMenu.defaultStyles = true;
-    
-    
-    
-    
-    
-      volantis.APlayerController = {};
-    
-    volantis.js('/js/rightMenu.js?time=1670300871584')
-  </script>
+  <script>volantis.js('/js/plugins/rightMenu.js')</script>
+
+
 
 
 
@@ -2839,19 +2806,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1670300871584")
+        volantis.js("/js/plugins/tags/sites.js")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1670300871584")
+        volantis.js("/js/plugins/tags/friends.js")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1670300871584")
+        volantis.js("/js/plugins/tags/contributors.js")
       }
     
   };
@@ -2865,7 +2832,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+  <script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
 <script>
   // https://www.npmjs.com/package/vanilla-lazyload
   // Set the options globally
@@ -2904,7 +2871,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 	hoverDelay: 0
   };
 </script>
-<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+<script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/flying-pages/flying-pages.min.js"></script>
 
 
 
@@ -2917,21 +2884,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-
-<script src="/js/app.js?time=1670300871584.js"></script>
 
 
 <!-- optional -->
 
   <script>
-  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/")
-    ? "/" || "/"
-    : "//" || "/";
+  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/") ?
+    "/" || "/" :
+    "//" || "/";
   const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1670300871584");
+    return volantis.js("/js/search/hexo.js");
   }
 
   function loadSearchService() {
@@ -2939,14 +2904,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     document.querySelectorAll(".input.u-search-input").forEach((e) => {
       e.removeEventListener("focus", loadSearchService, false);
     });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event) => {
+        event.preventDefault();
+      }, false);
+    });
   }
 
   // 打开并搜索 字符串 s
   function OpenSearch(s) {
-    loadSearchScript().then(() => {
+    if (typeof SearchService === 'undefined')
+      loadSearchScript().then(() => {
+        SearchService.setQueryText(s);
+        SearchService.search();
+      });
+    else {
       SearchService.setQueryText(s);
       SearchService.search();
-    });
+    }
   }
 
   // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
@@ -2969,7 +2945,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-
   <script>
 
 
@@ -2979,7 +2954,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       document.querySelector(".article pre code"))) {
       return;
     }
-    VolantisApp.copyCode(".highlight .code pre, .article pre code")
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
   }
   volantis.requestAnimationFrame(pjax_highlightjs_copyCode)
   volantis.pjax.push(pjax_highlightjs_copyCode)
@@ -2996,6 +2971,46 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.css");
+    volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  volantis.pjax.push(() => {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    if (typeof volantis.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+
+
 <!-- pjax 标签必须存在于所有页面 否则 pjax error -->
 <pjax>
 
@@ -3005,11 +3020,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   function listennSidebarTOC() {
     const navItems = document.querySelectorAll(".toc li");
     if (!navItems.length) return;
+    let targets = []
     const sections = [...navItems].map((element) => {
       const link = element.querySelector(".toc-link");
       const target = document.getElementById(
         decodeURI(link.getAttribute("href")).replace("#", "")
       );
+      targets.push(target)
       // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
       link.setAttribute("onclick","return false;")
       link.setAttribute("toc-action","toc-"+decodeURI(link.getAttribute("href")).replace("#", ""))
@@ -3039,46 +3056,67 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       }
     }
 
-    function findIndex(entries) {
-      let index = 0;
-      let entry = entries[index];
-      if (entry.boundingClientRect.top > 0) {
-        index = sections.indexOf(entry.target);
-        return index === 0 ? 0 : index - 1;
-      }
-      for (; index < entries.length; index++) {
-        if (entries[index].boundingClientRect.top <= 0) {
-          entry = entries[index];
-        } else {
-          return sections.indexOf(entry.target);
-        }
-      }
-      return sections.indexOf(entry.target);
-    }
-
-    function createIntersectionObserver(marginTop) {
-      marginTop = Math.floor(marginTop + 10000);
-      let intersectionObserver = new IntersectionObserver(
-        (entries, observe) => {
-          let scrollHeight = document.documentElement.scrollHeight;
-          if (scrollHeight > marginTop) {
-            observe.disconnect();
-            createIntersectionObserver(scrollHeight);
-            return;
+    // 方案一：
+    volantis.activateNavIndex=0
+    activateNavByIndex(navItems[volantis.activateNavIndex])
+    volantis.scroll.push(()=>{
+      if (targets[0].getBoundingClientRect().top >= 0) {
+        volantis.activateNavIndex = 0
+      }else if (targets[targets.length-1].getBoundingClientRect().top < 0) {
+        volantis.activateNavIndex = targets.length-1
+      } else {
+        for (let index = 0; index < targets.length; index++) {
+          const target0 = targets[index];
+          const target1 = targets[(index+1)%targets.length];
+          if (target0.getBoundingClientRect().top < 0&&target1.getBoundingClientRect().top >= 0) {
+            volantis.activateNavIndex=index
+            break;
           }
-          let index = findIndex(entries);
-          activateNavByIndex(navItems[index]);
-        }, {
-          rootMargin: marginTop + "px 0px -100% 0px",
-          threshold: 0,
         }
-      );
-      sections.forEach((element) => {
-        element && intersectionObserver.observe(element);
-      });
-    }
+      }
+      activateNavByIndex(navItems[volantis.activateNavIndex])
+    })
 
-    createIntersectionObserver(document.documentElement.scrollHeight);
+    // 方案二：
+    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
+    // function findIndex(entries) {
+    //   let index = 0;
+    //   let entry = entries[index];
+    //   if (entry.boundingClientRect.top > 0) {
+    //     index = sections.indexOf(entry.target);
+    //     return index === 0 ? 0 : index - 1;
+    //   }
+    //   for (; index < entries.length; index++) {
+    //     if (entries[index].boundingClientRect.top <= 0) {
+    //       entry = entries[index];
+    //     } else {
+    //       return sections.indexOf(entry.target);
+    //     }
+    //   }
+    //   return sections.indexOf(entry.target);
+    // }
+    // function createIntersectionObserver(marginTop) {
+    //   marginTop = Math.floor(marginTop + 10000);
+    //   let intersectionObserver = new IntersectionObserver(
+    //     (entries, observe) => {
+    //       let scrollHeight = document.documentElement.scrollHeight;
+    //       if (scrollHeight > marginTop) {
+    //         observe.disconnect();
+    //         createIntersectionObserver(scrollHeight);
+    //         return;
+    //       }
+    //       let index = findIndex(entries);
+    //       activateNavByIndex(navItems[index]);
+    //     }, {
+    //       rootMargin: marginTop + "px 0px -100% 0px",
+    //       threshold: 0,
+    //     }
+    //   );
+    //   sections.forEach((element) => {
+    //     element && intersectionObserver.observe(element);
+    //   });
+    // }
+    // createIntersectionObserver(document.documentElement.scrollHeight);
   }
 
   document.addEventListener("DOMContentLoaded", ()=>{
@@ -3089,104 +3127,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   });
 </script>
 
+
+
 <script>
-  // https://web.dev/content-visibility/
-  // https://www.caniuse.com/?search=content-visibility
-  // https://infrequently.org/2020/12/content-visibility-scroll-fix/
-  // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
-
-  // 备注 目前已知的问题:
-  // 动态修改导致的内容高度变化(例如评论框异步渲染的外部盒子高度变化) 无法提前获知, 进而导致的首次滚动条跳动无法去除 (wontfix) 事实上不使用 content-visibility 也会有跳动, 不过是比使用 content-visibility 跳动提前
-  // scrollreveal 插件潜在问题 目前尚不明确
-
-  let eqIsh = (a, b, fuzz = 2) => {
-    return Math.abs(a - b) <= fuzz;
-  };
-
-  let rectNotEQ = (a, b) => {
-    return !eqIsh(a.width, b.width) || !eqIsh(a.height, b.height);
-  };
-
-  // Keep a map of elements and the dimensions of
-  // their place-holders, re-setting the element's
-  // intrinsic size when we get updated measurements
-  // from observers.
-  let spaced = new WeakMap();
-
-  // Only call this when known cheap, post layout
-  let reserveSpace = (el, rect = el.getClientBoundingRect()) => {
-    let old = spaced.get(el);
-    // Set intrinsic size to prevent jumping on un-painting:
-    //    https://drafts.csswg.org/css-sizing-4/#intrinsic-size-override
-    if (!old || rectNotEQ(old, rect)) {
-      spaced.set(el, rect);
-      el.style["contain-intrinsic-size"] = `${rect.width}px ${rect.height}px`;
-    }
-  };
-
-  let iObs = new IntersectionObserver(
-    (entries, o) => {
-      entries.forEach((entry) => {
-        // We don't care if the element is intersecting or
-        // has been laid out as our page structure ensures
-        // they'll get the right width.
-        reserveSpace(entry.target, entry.boundingClientRect);
-      });
-    },
-    { rootMargin: "500px 0px 500px 0px" }
-  );
-
-  let rObs = new ResizeObserver((entries, o) => {
-    entries.forEach((entry) => {
-      reserveSpace(entry.target, entry.contentRect);
-    });
-  });
-
-  let resizeResilientDeferredRendering = (Selector) => {
-    let articles = document.querySelectorAll(Selector);
-
-    if (articles.length) {
-      articles.forEach((el) => {
-        iObs.observe(el);
-        rObs.observe(el);
-      });
-
-      // Workaround for Chrome bug, part 2.
-      //
-      // Re-enable browser management of rendering for the
-      // first article after the first paint. Double-rAF
-      // to ensure we get called after a layout.
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          articles[0].style["content-visibility"] = "auto";
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete') {
+      // 页面加载完毕 样式加载失败，或是当前网速慢，或是开启了省流模式
+      const { saveData, effectiveType } = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {}
+      if (getComputedStyle(document.querySelector("#safearea"), null)["display"] == "none" || saveData || /2g/.test(effectiveType)) {
+        document.querySelectorAll(".reveal").forEach(function (e) {
+          e.style["opacity"] = "1";
         });
-      });
+        document.querySelector("#safearea").style["display"] = "block";
+      }
     }
-  };
-
-  let contentVisibilityScrollFix = () => {
-    if (!("content-visibility" in document.documentElement.style)) {
-      return;
-    }
-    resizeResilientDeferredRendering(".post-story");
-    resizeResilientDeferredRendering("article");
-    resizeResilientDeferredRendering(".post-wrapper");
-  };
-  contentVisibilityScrollFix();
-  volantis.pjax.push(contentVisibilityScrollFix);
+  }
 </script>
 
 
-
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/","name":"给 Windows Server 移植 Xbox 手柄驱动"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给 Windows Server 移植 Xbox 手柄驱动","description":"","datePublished":"2021-12-15T04:00:00.000Z","dateModified":"2021-12-15T05:58:43.491Z","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/","wordCount":0,"keywords":"Windows Server,Xbox,Bluetooth,Driver","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
-
-
-<!-- more -->
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/","name":"给 Windows Server 移植 Xbox 手柄驱动"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","keywords":null,"description":null,"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","description":null},"publisher":{"@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给 Windows Server 移植 Xbox 手柄驱动","description":null,"inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/","wordCount":0,"datePublished":"2021-12-15T04:00:00.000Z","dateModified":"2021-12-15T05:58:43.491Z","keywords":"Windows Server,Xbox,Bluetooth,Driver","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
       
-        <!-- 
+        <!--
   pjax重载区域接口：
   1.  <pjax></pjax> 标签 pjax 标签必须存在于所有页面 否则 pjax error
   2.  script[data-pjax]
@@ -3196,16 +3160,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/pjax/pjax.min.js"></script>
 
 
 <script>
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
       pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([onclick="return!1"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
         selectors: [
           "head title",
+          "head meta[name=keywords]",
+          "head meta[name=description]",
           
           "#l_main",
           "#pjax-header-nav-list",
@@ -3214,7 +3180,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           "script[data-pjax], .pjax-reload script" // script标签添加data-pjax 或 script标签外层添加.pjax-reload 的script代码段重载
         ],
         cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
+        timeout: 5000,
+        
       });
     });
 
@@ -3244,16 +3211,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     });
 
     document.addEventListener('pjax:error', function (e) {
-      // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
-      volantis.pjax.method.error.start();
-      window.location.href = e.triggerElement.href;
+      if(volantis.debug) {
+        console.error(e);
+        console.log('pjax error: \n' + JSON.stringify(e));
+      }else{
+        // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+        volantis.pjax.method.error.start();
+        window.location.href = e.triggerElement.href;
+      }
     });
 </script>
 
       
     </div>
-  <!-- Custom Files bodyEnd begin-->
-  
-  <!-- Custom Files bodyEnd end-->
+    <!-- import body_end begin-->
+    <!-- import body_end end-->
+    <!-- Custom Files bodyEnd begin-->
+    
+    <!-- Custom Files bodyEnd end-->
   </body>
 </html>

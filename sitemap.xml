@@ -65,6 +65,13 @@
 
   
   <url>
+    <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/Windows-Server/</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/Windows-Hello/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -73,13 +80,6 @@
   
   <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/%E6%8C%87%E7%BA%B9%E8%A7%A3%E9%94%81/</loc>
-    <lastmod>2022-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/Windows-Server/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

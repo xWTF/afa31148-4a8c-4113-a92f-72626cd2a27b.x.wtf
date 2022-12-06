@@ -1,60 +1,52 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,default">
-    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-rc.1'>
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.7.7'>
   <meta name="generator" content="Hexo 6.3.0">
+  <meta name="Volantis" content="5.7.7">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/2021/"/>
   <!-- 渲染优化 -->
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <meta http-equiv='x-dns-prefetch-control' content='on' />
+      <link rel='dns-prefetch' href='https://unpkg.com'>
+      <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Security-Policy" content=" default-src 'self' https:; block-all-mixed-content; base-uri 'self' https:; form-action 'self' https:; worker-src 'self' https:; connect-src 'self' https: *; img-src 'self' data: https: *; media-src 'self' https: *; font-src 'self' data: https: *; frame-src 'self' https: *; manifest-src 'self' https: *; child-src https:; script-src 'self' https: 'unsafe-inline' *; style-src 'self' https: 'unsafe-inline' *; ">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  <meta content="xWTF Blog" name="application-name">
-  <meta content="xWTF Blog" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1670300871596" as="style">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <!-- import head_begin begin -->
+  <!-- import head_begin end -->
+  <!-- Custom Files headBegin begin-->
+  
+  <!-- Custom Files headBegin end-->
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
+  <!-- feed -->
   <!-- 页面元数据 -->
   <title>归档：2021 - xWTF Blog</title>
   <meta name="keywords" content="null">
+  <meta desc name="description" content="xWTF Blog - xWTF - xWTF Blog">
   <meta property="og:type" content="website">
 <meta property="og:title" content="xWTF Blog">
 <meta property="og:url" content="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/2021/index.html">
 <meta property="og:site_name" content="xWTF Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
+<meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:author" content="xWTF">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
-  <!-- feed -->
-  <!-- import meta -->
-  <!-- link -->
-  <!-- import link -->
+<meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
     /* 首屏样式 */
     #safearea {
   display: none;
-}
-/* 
-  * Workaround for Chrome bug, part 1
-  * Chunk rendering for all but the first article.
-  * /layout/_partial/scripts/content-visibility-scroll-fix.ejs
-*/
-.post-story + .post-story,
-article + article,
-.post-wrapper + .post-wrapper {
-  content-visibility: auto;
-  contain-intrinsic-size: 10px 500px;
 }
 :root {
   --color-site-body: #f4f4f4;
@@ -74,10 +66,11 @@ article + article,
   --color-h6: #666;
   --color-p: #444;
   --color-list: #666;
-  --color-list-hl: #36ac91;
+  --color-list-hl: #30ad91;
   --color-meta: #888;
   --color-read-bkg: #e0d8c8;
   --color-read-post: #f8f1e2;
+  --color-copyright-bkg: #f5f5f5;
 }
 * {
   box-sizing: border-box;
@@ -86,6 +79,22 @@ article + article,
   outline: none;
   margin: 0;
   padding: 0;
+}
+*::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+*::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #3dd9b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
 }
 html {
   color: var(--color-text);
@@ -102,7 +111,7 @@ html >::-webkit-scrollbar-track-piece {
   background: transparent;
 }
 html >::-webkit-scrollbar-thumb {
-  background: #44d7b6;
+  background: #3dd9b6;
   cursor: pointer;
   border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -131,7 +140,7 @@ body.modal-active {
   }
 }
 a {
-  color: #1b79c4;
+  color: #2092ec;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.28s ease;
@@ -702,14 +711,14 @@ button {
 }
 @font-face {
   font-family: 'UbuntuMono';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
 }
 @font-face {
   font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf");
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
@@ -913,7 +922,7 @@ button {
   -moz-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
   -ms-transition: all 0.28s ease;
-  color: #44d7b6;
+  color: #3dd9b6;
 }
 .l_header .switcher >li >a:hover {
   border: none;
@@ -1093,7 +1102,7 @@ ul.m-pc >li>a {
 }
 ul.m-pc >li>a:active,
 ul.m-pc >li>a.active {
-  border-bottom: 2px solid #44d7b6;
+  border-bottom: 2px solid #3dd9b6;
 }
 ul.m-pc li:hover >ul.list-v,
 ul.list-v li:hover >ul.list-v {
@@ -1232,7 +1241,7 @@ ul.list-v >li>a:hover {
 }
 .l_header ul.nav-list-h>li >a:active,
 .l_header ul.nav-list-h>li >a.active {
-  color: #44d7b6;
+  color: #3dd9b6;
 }
 .l_header ul.nav-list-h>li:hover>a {
   color: var(--color-list-hl);
@@ -1538,8 +1547,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1670300871596" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1670300871596"></noscript>
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1568,7 +1577,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     '<div class="kill-ie">'+
         `<span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>`+
         `<span class="kill-c">微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</span><br/>`+
-        `<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>`+
+        `<a target="_blank" rel="noopener" href="https://blogs.windows.com/windowsexperience/2021/05/19/the-future-of-internet-explorer-on-windows-10-is-in-microsoft-edge/"><strong>了解详情 ></strong></a>`+
     '</div>');
 </script>
 
@@ -1606,7 +1615,44 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <script>
   /************这个文件存放不需要重载的全局变量和全局函数*********/
   window.volantis = {}; // volantis 全局变量
+  volantis.debug = "env"; // 调试模式
   volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
+
+  volantis.GLOBAL_CONFIG ={
+    debug: "env",
+    cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
+    default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
+    lastupdate: new Date(1670301512282),
+    sidebar: {
+      for_page: ["blogger","category","tagcloud"],
+      for_post: ["toc"],
+      webinfo: {
+        lastupd: {
+          enable: true,
+          friendlyShow: true
+        },
+        runtime: {
+          data: "2020/01/01",
+          unit: "天"
+        }
+      }
+    },
+    plugins: {
+      message: {"enable":true,"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/css/iziToast.min.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/js/iziToast.min.js","icon":{"default":"fa-solid fa-info-circle light-blue","quection":"fa-solid fa-question-circle light-blue"},"time":{"default":5000,"quection":20000},"position":"topRight","transitionIn":"bounceInLeft","transitionOut":"fadeOutRight","titleColor":"var(--color-text)","messageColor":"var(--color-text)","backgroundColor":"var(--color-card)","zindex":2147483647,"copyright":{"enable":true,"title":"知识共享许可协议","message":"请遵守 CC BY-NC-SA 4.0 协议。","icon":"far fa-copyright light-blue"},"aplayer":{"enable":true,"play":"fa-solid fa-play","pause":"fa-solid fa-pause"},"rightmenu":{"enable":true,"notice":true}},
+      fancybox: {"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.umd.js"},
+      
+      
+      rightmenu: {
+        faicon: "fa",
+        layout: ["home","darkmode"],
+        music_alwaysShow: true,
+        customPicUrl: {"enable":false,"old":null,"new":null}
+      },
+      
+      
+    }
+  }
+
   /******************** volantis.EventListener ********************************/
   // 事件监听器 see: /source/js/app.js
   volantis.EventListener = {}
@@ -1748,12 +1794,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     error: new RunItem(),
     send: new RunItem(),
   };
-  volantis.pjax = {
-    ...volantis.pjax,
+  volantis.pjax = Object.assign(volantis.pjax, {
     push: volantis.pjax.method.complete.push,
     error: volantis.pjax.method.error.push,
     send: volantis.pjax.method.send.push,
-  };
+  });
+  /******************** RightMenu ********************************/
+  // volantis.rightmenu.handle(callBack[,"callBackName"]) 外部菜单项控制
+  // 可在 volantis.mouseEvent 处获取右键事件
+  volantis.rightmenu = {};
+  volantis.rightmenu.method = {
+    handle: new RunItem(),
+  }
+  volantis.rightmenu = Object.assign(volantis.rightmenu, {
+    handle: volantis.rightmenu.method.handle.push,
+  });
   /********************  Dark Mode  ********************************/
   // /layout/_partial/scripts/darkmode.ejs
   // volantis.dark.mode 当前模式 dark or light
@@ -1763,13 +1818,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.dark.method = {
     toggle: new RunItem(),
   };
-  volantis.dark = {
-    ...volantis.dark,
+  volantis.dark = Object.assign(volantis.dark, {
     push: volantis.dark.method.toggle.push,
-  };
+  });
   /********************  Message  ********************************/
-  // /layout/_plugins/message/script.ejs
-  // volantis.message
+  // VolantisApp.message
   /********************  isMobile  ********************************/
   // /source/js/app.js
   // volantis.isMobile
@@ -1834,7 +1887,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.import = {
     jQuery: () => {
       if (typeof jQuery == "undefined") {
-        return volantis.js("https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js")
+        return volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/jquery/dist/jquery.min.js")
       } else {
         return new Promise(resolve => {
           resolve()
@@ -1877,10 +1930,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     engine: new RunItem(),
     unengine: new RunItem(),
   };
-  volantis.scroll = {
-    ...volantis.scroll,
+  volantis.scroll = Object.assign(volantis.scroll, {
     push: volantis.scroll.engine.push,
-  };
+  });
   // 滚动条距离顶部的距离
   volantis.scroll.getScrollTop = () =>{
     let scrollPos;
@@ -1907,6 +1959,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         // } else {
         //   console.log("向上滚动");
         // }
+        // 注销过期的unengine未滚动事件
+        volantis.scroll.unengine.list=[]
         volantis.scroll.engine.start();
       }else{
         volantis.scroll.unengine.start();
@@ -1916,8 +1970,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     volantis.requestAnimationFrame(loop)
   }
   volantis.scroll.handleScrollEvents()
+  volantis.scroll.ele = null;
   // 触发页面滚动至目标元素位置
-  volantis.scroll.to = (ele, option = {}) =>{
+  volantis.scroll.to = (ele, option = {}) => {
+    if (!ele) return;
+    volantis.scroll.ele = ele;
     // 默认配置
     opt = {
       top: ele.getBoundingClientRect().top + document.documentElement.scrollTop,
@@ -1934,41 +1991,77 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       opt.top += option.addTop
     }
     if (!("observerDic" in option)) {
-      option.observerDic = 25
+      option.observerDic = 100
     }
     // 滚动
     window.scrollTo(opt);
     // 监视器
-    // 监视并矫正元素滚动到指定位置 
-    // 目前用于处理 toc 部分 lazyload 引起的 cls 导致的定位失败问题
+    // 监视并矫正元素滚动到指定位置
+    // 用于处理 lazyload 引起的 cls 导致的定位失败问题
+    // option.observer = false
     if (option.observer) {
-      volantis.scroll.unengine.push(()=>{
-        let me = ele.getBoundingClientRect().top
-        if(!(me >= -option.observerDic && me <= option.observerDic)){
-          volantis.scroll.to(ele, option)
-        }else{
-          volantis.scroll.unengine.remove("unengineObserver")
+      setTimeout(() => {
+        if (volantis.scroll.ele != ele) {
+          return
         }
-      },"unengineObserver")
+        volantis.scroll.unengine.push(() => {
+          let me = ele.getBoundingClientRect().top
+          if(!(me >= -option.observerDic && me <= option.observerDic)){
+            volantis.scroll.to(ele, option)
+          }
+          volantis.scroll.unengine.remove("unengineObserver")
+        },"unengineObserver")
+      },1000)
+    }
+  }
+  /********************** Content Visibility ********************************/
+  // 见 source/css/first.styl 如果遇到任何问题 删除 .post-story 即可
+  // 一个元素被声明 content-visibility 属性后 如果元素不在 viewport 中 浏览器不会计算其后代元素样式和属性 从而节省 Style & Layout 耗时
+  // content-visibility 的副作用: 锚点失效 等等(实验初期 暂不明确), 使用此方法清除样式
+  volantis.cleanContentVisibility = ()=>{
+    if (document.querySelector(".post-story")) {
+      console.log("cleanContentVisibility");
+      document.querySelectorAll(".post-story").forEach(e=>{
+        e.classList.remove("post-story")
+      })
     }
   }
   /******************************************************************************/
   /******************************************************************************/
+  /******************************************************************************/
+  //图像加载出错时的处理
+  function errorImgAvatar(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg";
+    img.onerror = null;
+  }
+  function errorImgCover(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg";
+    img.onerror = null;
+  }
+  /******************************************************************************/
 </script>
-  <!-- Custom Files head begin-->
+
+  <!-- import head_end begin -->
+  <!-- import head_end end -->
+  <!-- Custom Files headEnd begin-->
   
-  <!-- Custom Files head end-->
+  <!-- Custom Files headEnd end-->
 </head>
   <body itemscope itemtype="http://schema.org/WebPage">
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+    <!-- import body_begin begin-->
+    <!-- import body_begin end-->
+    <!-- Custom Files bodyBegin begin-->
+    
+    <!-- Custom Files bodyBegin end-->
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
       <p class="title"></p>
       <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
-        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
         
-          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
         
       </ul>
     </div>
@@ -1992,7 +2085,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/" title="博客"
                   
                   
@@ -2009,7 +2102,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/categories/" title="分类"
                   
                   
@@ -2026,7 +2119,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/tags/" title="标签"
                   
                   
@@ -2043,7 +2136,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/archives/" title="归档"
                   
                   
@@ -2060,7 +2153,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/about/" title="关于"
                   
                   
@@ -2076,26 +2169,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 				</ul>
 			</div>
-
+      
       <div class="m_search">
         <form name="searchform" class="form u-search-form">
-          <i class="icon fas fa-search fa-fw"></i>
+          <i class="icon fa-solid fa-search fa-fw"></i>
           <input type="text" class="input u-search-input" placeholder="搜索" />
         </form>
       </div>
+      
 
 			<ul class='switcher nav-list-h m-phone'>
 				
-					<li><a class="s-search fas fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
 				
 				<li>
-          <a class="s-menu fas fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
           <ul class="menu-phone list-v navigation white-box">
             
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/" title="博客"
                   
                   
@@ -2112,7 +2206,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/categories/" title="分类"
                   
                   
@@ -2129,7 +2223,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/tags/" title="标签"
                   
                   
@@ -2146,7 +2240,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/archives/" title="归档"
                   
                   
@@ -2163,7 +2257,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" 
+                <a class="menuitem flat-box faa-parent animated-hover"
                 href="/about/" title="关于"
                   
                   
@@ -2196,7 +2290,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
       <div id="none" class='cover-wrapper  blank' style="display: none;">
         
-  <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
+  <div class='cover-bg lazyload placeholder' data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
 
 
         <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
@@ -2232,11 +2326,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="xWTF Blog">
   </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="xWTF Blog">
+    <meta itemprop="description" content="">
+  </span>
   
   
   
     <span hidden>
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
   
@@ -2247,7 +2345,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </a>
     </h2>
   
-  <div class='md' itemprop="articleBody">
+  <div class='md article-desc' itemprop="articleBody">
     
       
         前段时间迁移到了 Windows Server 2022，使用体验还算不错。不过，最近又发现一个新问题：Xbox 手柄没有驱动。
@@ -2285,11 +2383,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="xWTF Blog">
   </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="xWTF Blog">
+    <meta itemprop="description" content="">
+  </span>
   
   
   
     <span hidden>
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
   
@@ -2300,7 +2402,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </a>
     </h2>
   
-  <div class='md' itemprop="articleBody">
+  <div class='md article-desc' itemprop="articleBody">
     
       
         最近从 Windows 10 迁移到了 Windows Server 2022，不过我在设置指纹解锁时发现添加按钮是灰色的，并且系统显示了错误提示 “Windows Hello 在 Windows Server 上不可用”。
@@ -2338,11 +2440,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="xWTF Blog">
   </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="xWTF Blog">
+    <meta itemprop="description" content="">
+  </span>
   
   
   
     <span hidden>
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
   
@@ -2353,7 +2459,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </a>
     </h2>
   
-  <div class='md' itemprop="articleBody">
+  <div class='md article-desc' itemprop="articleBody">
     
       
         Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
@@ -2394,16 +2500,17 @@ Qu...
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
+
   
     
     
-
-<section class="widget blogger shadow desktop mobile pjax">
+      
+<section class="widget blogger desktop mobile pjax">
   <div class='content'>
     
       
         <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='https://gravatar.globalslb.net/avatar/f7843355b72d4af2bbf0b4c020f299c2?s=128' alt="This is a picture without description" />
+          <img no-lazy src='https://gravatar.globalslb.net/avatar/f7843355b72d4af2bbf0b4c020f299c2?s=128'/>
         </a>
       
     
@@ -2454,20 +2561,23 @@ Qu...
   </div>
 </section>
 
+    
   
 
   
     
     
+      
 
+    
   
 
   
     
     
+      
   
-
-  <section class="widget tagcloud shadow desktop pjax">
+  <section class="widget tagcloud desktop pjax">
     
   <header>
     
@@ -2482,7 +2592,13 @@ Qu...
   </section>
 
 
+    
   
+
+
+<div class="widget-sticky pjax">
+
+</div>
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
@@ -2507,7 +2623,6 @@ Qu...
     <!-- pjax占位 -->
   </div>
 
-
   <!-- Custom Files side begin -->
   
   <!-- Custom Files side end -->
@@ -2521,7 +2636,6 @@ Qu...
 <script>
   window.pdata={}
   pdata.ispage=false;
-  pdata.postTitle="";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -2601,7 +2715,7 @@ Qu...
   </footer>
 
 
-        <a id="s-top" class="fas fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
       </div>
     </div>
     <div>
@@ -2620,7 +2734,7 @@ Qu...
 
 <script>
   
-  volantis.css("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css");
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fortawesome/fontawesome-free/css/all.min.css");
   
   
   
@@ -2631,150 +2745,7 @@ Qu...
 
 <!-- internal -->
 
-
-  <script>
-  volantis.message = (title, message, option = {}, done = null) => {
-    if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1670300871596')
-      volantis.js('/js/message.js?time=1670300871596', () => {
-        tozashMessage(title, message, option, done);
-      });
-    } else {
-      tozashMessage(title, message, option, done);
-    }
-
-    function tozashMessage(title, message, option, done) {
-      const {
-        icon,
-        time,
-        position,
-        transitionIn,
-        transitionOut,
-        messageColor,
-        titleColor,
-        backgroundColor,
-        zindex,
-        displayMode
-      } = option;
-      iziToast.show({
-        layout: '2',
-        icon: 'Fontawesome',
-        closeOnEscape: 'true',
-        displayMode: displayMode || 'replace',
-        transitionIn: transitionIn || 'bounceInLeft',
-        transitionOut: transitionOut || 'fadeOutRight',
-        messageColor: messageColor || 'var(--color-text)',
-        titleColor: titleColor || 'var(--color-text)',
-        backgroundColor: backgroundColor || 'var(--color-card)',
-        zindex: zindex || '2147483647',
-        icon: icon || 'fas fa-info-circle light-blue',
-        timeout: time || '5000',
-        position: position || 'topRight',
-        title: title,
-        message: message,
-        onClosed: () => {
-          if(done) done();
-        },
-      });
-    }
-  };
-
-  volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
-    if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1670300871596')
-      volantis.js('/js/message.js?time=1670300871596', () => {
-        tozashQuestion(title, message, option, success, cancel, done);
-      });
-    } else {
-      tozashQuestion(title, message, option, success, cancel, done);
-    }
-
-    function tozashQuestion(title, message, option, success, cancel, done) {
-      const {
-        icon,
-        time,
-        position,
-        transitionIn,
-        transitionOut,
-        messageColor,
-        titleColor,
-        backgroundColor,
-        zindex
-      } = option;
-      iziToast.question({ 
-        id: 'question',
-        icon: 'Fontawesome',
-        close: false,
-        overlay: true,
-        displayMode: 'once',
-        position: 'center',
-        messageColor: messageColor || 'var(--color-text)',
-        titleColor: titleColor || 'var(--color-text)',
-        backgroundColor: backgroundColor || 'var(--color-card)',
-        zindex: zindex || '2147483647',
-        icon: icon || 'fas fa-question-circle light-blue',
-        timeout: time || '20000',
-        title: title,
-        message: message,
-        buttons: [
-          ['<button><b>是</b></button>', (instance, toast) => {
-            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
-            if(success) success(instance, toast)
-          }],
-          ['<button><b>否</b></button>', (instance, toast) => {
-            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
-            if(cancel) cancel(instance, toast)
-          }]
-        ],
-        onClosed: (instance, toast, closedBy) => {
-          if(done) done(instance, toast, closedBy);
-        }
-      });
-    }
-  }
-
-  volantis.hideMessage = (done = null) => {
-    const toast = document.querySelector('.iziToast');
-    if (!toast) {
-      if(done) done()
-      return;
-    }
-    
-    if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1670300871596')
-      volantis.js('/js/message.js?time=1670300871596', () => {
-        hideMessage(done);
-      });
-    } else {
-      hideMessage(done);
-    }
-
-    function hideMessage(done) {
-      iziToast.hide({}, toast);
-      if(done) done();
-    }
-  }
-
-  volantis.messageCopyright = {
-    enable: 'true' === 'true' ? true : false,
-    title: '知识共享许可协议',
-    message: '请遵守 CC BY-NC-SA 4.0 协议。',
-    icon: 'far fa-copyright light-blue'
-  }
-
-  volantis.messageRightMenu = {
-    enable: 'true' === 'true' ? true : false,
-  }
-
-  if(volantis.messageCopyright.enable) {
-    document.body.oncopy = function(){
-      volantis.message(volantis.messageCopyright.title, volantis.messageCopyright.message, {
-        icon: volantis.messageCopyright.icon
-      });
-    }; 
-  }
-</script>
-
+<script src="/js/app.js"></script>
 
 
 
@@ -2806,6 +2777,12 @@ Qu...
           
           <i class='fa fa-cut fa-fw mR12'></i> 剪切文本
         </span>
+        
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='searchWord'>
+          
+          <i class='fa fa-search fa-fw'></i> 站内搜索
+        </span>
+        
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='openTab'>
           
           <i class='fa fa-external-link-square-alt fa-fw mR12'></i> 在新标签页打开
@@ -2832,21 +2809,9 @@ Qu...
       
     </ul>
   </div>
-  <script>
-    volantis.rightMenu = {};
-    volantis.rightMenu.faicon = 'fa' || 'fa';
-    
-    
-      volantis.rightMenu.defaultStyles = true;
-    
-    
-    
-    
-    
-      volantis.APlayerController = {};
-    
-    volantis.js('/js/rightMenu.js?time=1670300871596')
-  </script>
+  <script>volantis.js('/js/plugins/rightMenu.js')</script>
+
+
 
 
 
@@ -2859,19 +2824,19 @@ Qu...
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1670300871596")
+        volantis.js("/js/plugins/tags/sites.js")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1670300871596")
+        volantis.js("/js/plugins/tags/friends.js")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1670300871596")
+        volantis.js("/js/plugins/tags/contributors.js")
       }
     
   };
@@ -2885,7 +2850,7 @@ Qu...
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+  <script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
 <script>
   // https://www.npmjs.com/package/vanilla-lazyload
   // Set the options globally
@@ -2924,7 +2889,7 @@ Qu...
 	hoverDelay: 0
   };
 </script>
-<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+<script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/flying-pages/flying-pages.min.js"></script>
 
 
 
@@ -2937,21 +2902,19 @@ Qu...
 
 
 
-
-<script src="/js/app.js?time=1670300871596.js"></script>
 
 
 <!-- optional -->
 
   <script>
-  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/")
-    ? "/" || "/"
-    : "//" || "/";
+  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/") ?
+    "/" || "/" :
+    "//" || "/";
   const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1670300871596");
+    return volantis.js("/js/search/hexo.js");
   }
 
   function loadSearchService() {
@@ -2959,14 +2922,25 @@ Qu...
     document.querySelectorAll(".input.u-search-input").forEach((e) => {
       e.removeEventListener("focus", loadSearchService, false);
     });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event) => {
+        event.preventDefault();
+      }, false);
+    });
   }
 
   // 打开并搜索 字符串 s
   function OpenSearch(s) {
-    loadSearchScript().then(() => {
+    if (typeof SearchService === 'undefined')
+      loadSearchScript().then(() => {
+        SearchService.setQueryText(s);
+        SearchService.search();
+      });
+    else {
       SearchService.setQueryText(s);
       SearchService.search();
-    });
+    }
   }
 
   // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
@@ -2989,7 +2963,6 @@ Qu...
 
 
 
-
   <script>
 
 
@@ -2999,7 +2972,7 @@ Qu...
       document.querySelector(".article pre code"))) {
       return;
     }
-    VolantisApp.copyCode(".highlight .code pre, .article pre code")
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
   }
   volantis.requestAnimationFrame(pjax_highlightjs_copyCode)
   volantis.pjax.push(pjax_highlightjs_copyCode)
@@ -3016,6 +2989,46 @@ Qu...
 
 
 
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.css");
+    volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  volantis.pjax.push(() => {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    if (typeof volantis.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+
+
 <!-- pjax 标签必须存在于所有页面 否则 pjax error -->
 <pjax>
 
@@ -3025,11 +3038,13 @@ Qu...
   function listennSidebarTOC() {
     const navItems = document.querySelectorAll(".toc li");
     if (!navItems.length) return;
+    let targets = []
     const sections = [...navItems].map((element) => {
       const link = element.querySelector(".toc-link");
       const target = document.getElementById(
         decodeURI(link.getAttribute("href")).replace("#", "")
       );
+      targets.push(target)
       // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
       link.setAttribute("onclick","return false;")
       link.setAttribute("toc-action","toc-"+decodeURI(link.getAttribute("href")).replace("#", ""))
@@ -3059,46 +3074,67 @@ Qu...
       }
     }
 
-    function findIndex(entries) {
-      let index = 0;
-      let entry = entries[index];
-      if (entry.boundingClientRect.top > 0) {
-        index = sections.indexOf(entry.target);
-        return index === 0 ? 0 : index - 1;
-      }
-      for (; index < entries.length; index++) {
-        if (entries[index].boundingClientRect.top <= 0) {
-          entry = entries[index];
-        } else {
-          return sections.indexOf(entry.target);
-        }
-      }
-      return sections.indexOf(entry.target);
-    }
-
-    function createIntersectionObserver(marginTop) {
-      marginTop = Math.floor(marginTop + 10000);
-      let intersectionObserver = new IntersectionObserver(
-        (entries, observe) => {
-          let scrollHeight = document.documentElement.scrollHeight;
-          if (scrollHeight > marginTop) {
-            observe.disconnect();
-            createIntersectionObserver(scrollHeight);
-            return;
+    // 方案一：
+    volantis.activateNavIndex=0
+    activateNavByIndex(navItems[volantis.activateNavIndex])
+    volantis.scroll.push(()=>{
+      if (targets[0].getBoundingClientRect().top >= 0) {
+        volantis.activateNavIndex = 0
+      }else if (targets[targets.length-1].getBoundingClientRect().top < 0) {
+        volantis.activateNavIndex = targets.length-1
+      } else {
+        for (let index = 0; index < targets.length; index++) {
+          const target0 = targets[index];
+          const target1 = targets[(index+1)%targets.length];
+          if (target0.getBoundingClientRect().top < 0&&target1.getBoundingClientRect().top >= 0) {
+            volantis.activateNavIndex=index
+            break;
           }
-          let index = findIndex(entries);
-          activateNavByIndex(navItems[index]);
-        }, {
-          rootMargin: marginTop + "px 0px -100% 0px",
-          threshold: 0,
         }
-      );
-      sections.forEach((element) => {
-        element && intersectionObserver.observe(element);
-      });
-    }
+      }
+      activateNavByIndex(navItems[volantis.activateNavIndex])
+    })
 
-    createIntersectionObserver(document.documentElement.scrollHeight);
+    // 方案二：
+    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
+    // function findIndex(entries) {
+    //   let index = 0;
+    //   let entry = entries[index];
+    //   if (entry.boundingClientRect.top > 0) {
+    //     index = sections.indexOf(entry.target);
+    //     return index === 0 ? 0 : index - 1;
+    //   }
+    //   for (; index < entries.length; index++) {
+    //     if (entries[index].boundingClientRect.top <= 0) {
+    //       entry = entries[index];
+    //     } else {
+    //       return sections.indexOf(entry.target);
+    //     }
+    //   }
+    //   return sections.indexOf(entry.target);
+    // }
+    // function createIntersectionObserver(marginTop) {
+    //   marginTop = Math.floor(marginTop + 10000);
+    //   let intersectionObserver = new IntersectionObserver(
+    //     (entries, observe) => {
+    //       let scrollHeight = document.documentElement.scrollHeight;
+    //       if (scrollHeight > marginTop) {
+    //         observe.disconnect();
+    //         createIntersectionObserver(scrollHeight);
+    //         return;
+    //       }
+    //       let index = findIndex(entries);
+    //       activateNavByIndex(navItems[index]);
+    //     }, {
+    //       rootMargin: marginTop + "px 0px -100% 0px",
+    //       threshold: 0,
+    //     }
+    //   );
+    //   sections.forEach((element) => {
+    //     element && intersectionObserver.observe(element);
+    //   });
+    // }
+    // createIntersectionObserver(document.documentElement.scrollHeight);
   }
 
   document.addEventListener("DOMContentLoaded", ()=>{
@@ -3109,104 +3145,30 @@ Qu...
   });
 </script>
 
+
+
 <script>
-  // https://web.dev/content-visibility/
-  // https://www.caniuse.com/?search=content-visibility
-  // https://infrequently.org/2020/12/content-visibility-scroll-fix/
-  // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
-
-  // 备注 目前已知的问题:
-  // 动态修改导致的内容高度变化(例如评论框异步渲染的外部盒子高度变化) 无法提前获知, 进而导致的首次滚动条跳动无法去除 (wontfix) 事实上不使用 content-visibility 也会有跳动, 不过是比使用 content-visibility 跳动提前
-  // scrollreveal 插件潜在问题 目前尚不明确
-
-  let eqIsh = (a, b, fuzz = 2) => {
-    return Math.abs(a - b) <= fuzz;
-  };
-
-  let rectNotEQ = (a, b) => {
-    return !eqIsh(a.width, b.width) || !eqIsh(a.height, b.height);
-  };
-
-  // Keep a map of elements and the dimensions of
-  // their place-holders, re-setting the element's
-  // intrinsic size when we get updated measurements
-  // from observers.
-  let spaced = new WeakMap();
-
-  // Only call this when known cheap, post layout
-  let reserveSpace = (el, rect = el.getClientBoundingRect()) => {
-    let old = spaced.get(el);
-    // Set intrinsic size to prevent jumping on un-painting:
-    //    https://drafts.csswg.org/css-sizing-4/#intrinsic-size-override
-    if (!old || rectNotEQ(old, rect)) {
-      spaced.set(el, rect);
-      el.style["contain-intrinsic-size"] = `${rect.width}px ${rect.height}px`;
-    }
-  };
-
-  let iObs = new IntersectionObserver(
-    (entries, o) => {
-      entries.forEach((entry) => {
-        // We don't care if the element is intersecting or
-        // has been laid out as our page structure ensures
-        // they'll get the right width.
-        reserveSpace(entry.target, entry.boundingClientRect);
-      });
-    },
-    { rootMargin: "500px 0px 500px 0px" }
-  );
-
-  let rObs = new ResizeObserver((entries, o) => {
-    entries.forEach((entry) => {
-      reserveSpace(entry.target, entry.contentRect);
-    });
-  });
-
-  let resizeResilientDeferredRendering = (Selector) => {
-    let articles = document.querySelectorAll(Selector);
-
-    if (articles.length) {
-      articles.forEach((el) => {
-        iObs.observe(el);
-        rObs.observe(el);
-      });
-
-      // Workaround for Chrome bug, part 2.
-      //
-      // Re-enable browser management of rendering for the
-      // first article after the first paint. Double-rAF
-      // to ensure we get called after a layout.
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          articles[0].style["content-visibility"] = "auto";
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete') {
+      // 页面加载完毕 样式加载失败，或是当前网速慢，或是开启了省流模式
+      const { saveData, effectiveType } = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {}
+      if (getComputedStyle(document.querySelector("#safearea"), null)["display"] == "none" || saveData || /2g/.test(effectiveType)) {
+        document.querySelectorAll(".reveal").forEach(function (e) {
+          e.style["opacity"] = "1";
         });
-      });
+        document.querySelector("#safearea").style["display"] = "block";
+      }
     }
-  };
-
-  let contentVisibilityScrollFix = () => {
-    if (!("content-visibility" in document.documentElement.style)) {
-      return;
-    }
-    resizeResilientDeferredRendering(".post-story");
-    resizeResilientDeferredRendering("article");
-    resizeResilientDeferredRendering(".post-wrapper");
-  };
-  contentVisibilityScrollFix();
-  volantis.pjax.push(contentVisibilityScrollFix);
+  }
 </script>
 
 
-
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/","name":"Archive"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/2021/","name":"2021年"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","keywords":null,"description":null,"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","description":null},"publisher":{"@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
-
-
-<!-- more -->
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/","name":"Archive"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/2021/","name":"2021年"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","keywords":null,"description":null,"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","description":null},"publisher":{"@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":null,"inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
       
-        <!-- 
+        <!--
   pjax重载区域接口：
   1.  <pjax></pjax> 标签 pjax 标签必须存在于所有页面 否则 pjax error
   2.  script[data-pjax]
@@ -3216,16 +3178,18 @@ Qu...
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/pjax/pjax.min.js"></script>
 
 
 <script>
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
       pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([onclick="return!1"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
         selectors: [
           "head title",
+          "head meta[name=keywords]",
+          "head meta[name=description]",
           
           "#l_main",
           "#pjax-header-nav-list",
@@ -3234,7 +3198,8 @@ Qu...
           "script[data-pjax], .pjax-reload script" // script标签添加data-pjax 或 script标签外层添加.pjax-reload 的script代码段重载
         ],
         cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
+        timeout: 5000,
+        
       });
     });
 
@@ -3264,16 +3229,23 @@ Qu...
     });
 
     document.addEventListener('pjax:error', function (e) {
-      // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
-      volantis.pjax.method.error.start();
-      window.location.href = e.triggerElement.href;
+      if(volantis.debug) {
+        console.error(e);
+        console.log('pjax error: \n' + JSON.stringify(e));
+      }else{
+        // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+        volantis.pjax.method.error.start();
+        window.location.href = e.triggerElement.href;
+      }
     });
 </script>
 
       
     </div>
-  <!-- Custom Files bodyEnd begin-->
-  
-  <!-- Custom Files bodyEnd end-->
+    <!-- import body_end begin-->
+    <!-- import body_end end-->
+    <!-- Custom Files bodyEnd begin-->
+    
+    <!-- Custom Files bodyEnd end-->
   </body>
 </html>

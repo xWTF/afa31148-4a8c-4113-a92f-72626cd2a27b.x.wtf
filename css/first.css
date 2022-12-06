@@ -1,17 +1,6 @@
 #safearea {
   display: none;
 }
-/* 
-  * Workaround for Chrome bug, part 1
-  * Chunk rendering for all but the first article.
-  * /layout/_partial/scripts/content-visibility-scroll-fix.ejs
-*/
-.post-story + .post-story,
-article + article,
-.post-wrapper + .post-wrapper {
-  content-visibility: auto;
-  contain-intrinsic-size: 10px 500px;
-}
 :root {
   --color-site-body: #f4f4f4;
   --color-site-bg: #f4f4f4;
@@ -30,10 +19,11 @@ article + article,
   --color-h6: #666;
   --color-p: #444;
   --color-list: #666;
-  --color-list-hl: #36ac91;
+  --color-list-hl: #30ad91;
   --color-meta: #888;
   --color-read-bkg: #e0d8c8;
   --color-read-post: #f8f1e2;
+  --color-copyright-bkg: #f5f5f5;
 }
 * {
   box-sizing: border-box;
@@ -42,6 +32,22 @@ article + article,
   outline: none;
   margin: 0;
   padding: 0;
+}
+*::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+*::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #3dd9b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
 }
 html {
   color: var(--color-text);
@@ -58,7 +64,7 @@ html >::-webkit-scrollbar-track-piece {
   background: transparent;
 }
 html >::-webkit-scrollbar-thumb {
-  background: #44d7b6;
+  background: #3dd9b6;
   cursor: pointer;
   border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -87,7 +93,7 @@ body.modal-active {
   }
 }
 a {
-  color: #1b79c4;
+  color: #2092ec;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.28s ease;
@@ -658,14 +664,14 @@ button {
 }
 @font-face {
   font-family: 'UbuntuMono';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
 }
 @font-face {
   font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf");
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
@@ -869,7 +875,7 @@ button {
   -moz-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
   -ms-transition: all 0.28s ease;
-  color: #44d7b6;
+  color: #3dd9b6;
 }
 .l_header .switcher >li >a:hover {
   border: none;
@@ -1049,7 +1055,7 @@ ul.m-pc >li>a {
 }
 ul.m-pc >li>a:active,
 ul.m-pc >li>a.active {
-  border-bottom: 2px solid #44d7b6;
+  border-bottom: 2px solid #3dd9b6;
 }
 ul.m-pc li:hover >ul.list-v,
 ul.list-v li:hover >ul.list-v {
@@ -1188,7 +1194,7 @@ ul.list-v >li>a:hover {
 }
 .l_header ul.nav-list-h>li >a:active,
 .l_header ul.nav-list-h>li >a.active {
-  color: #44d7b6;
+  color: #3dd9b6;
 }
 .l_header ul.nav-list-h>li:hover>a {
   color: var(--color-list-hl);
