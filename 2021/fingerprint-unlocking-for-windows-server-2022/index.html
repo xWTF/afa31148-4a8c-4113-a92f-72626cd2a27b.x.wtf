@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,default">
     <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-rc.1'>
-  <meta name="generator" content="Hexo 5.4.0">
+  <meta name="generator" content="Hexo 6.3.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -20,7 +20,7 @@
   <meta content="xWTF Blog" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1639548222559" as="style">
+  <link rel="preload" href="/css/style.css?time=1670300871588" as="style">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
@@ -36,7 +36,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2021-09-23T11:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-15T03:34:05.425Z">
+<meta property="article:modified_time" content="2022-12-06T04:24:39.761Z">
 <meta property="article:author" content="xWTF">
 <meta property="article:tag" content="Windows Hello">
 <meta property="article:tag" content="指纹解锁">
@@ -1545,8 +1545,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1639548222559" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1639548222559"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1670300871588" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1670300871588"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -2282,47 +2282,47 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
     <p>最近从 Windows 10 迁移到了 Windows Server 2022，不过我在设置指纹解锁时发现添加按钮是灰色的，并且系统显示了错误提示 <strong>“Windows Hello 在 Windows Server 上不可用”</strong>。</p>
-<p><img src="1.webp" class="lazyload" data-srcset="1.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/1.webp" class="lazyload" data-srcset="/1.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
 <p>在 Google 上找了一圈并没有找到一个可行的方案，<a target="_blank" rel="noopener" href="https://blog.berd.moe/archives/windows-server-2019-setup-pin-and-biometric-login/">这篇 Windows Server 2019 的博客</a> 给出的工具在 2022 中可以加上 PIN，但加上 PIN 后添加指纹的按钮依然是提示不可用的。看来得自己研究一下了。</p>
-<h3 id="初步分析"><a href="#初步分析" class="headerlink" title="初步分析"></a>初步分析</h3><p>根据前面提到那篇博客给出的思路，我大致翻了一下 <strong>SettingsHandlers_User.dll</strong>，但是并没有找到和指纹解锁 / Windows Hello 有关的东西，猜测 Microsoft 对这块设置进行了重构。</p>
+<h3 id="初步分析"><a href="#初步分析" class="headerlink" title="初步分析"></a>初步分析</h3><p>根据前面提到那篇博客给出的思路，我大致翻了一下 <strong>SettingsHandlers_User.dll</strong>，但是并没有找到和指纹解锁 &#x2F; Windows Hello 有关的东西，猜测 Microsoft 对这块设置进行了重构。</p>
 <p>我并不想去研究整个 UWP APP 的逻辑，于是打开火绒剑观察进程模块。很快就发现进入 <em>登录选项</em> 这个标签时会加载 <strong>SettingsHandlers_Authentication.dll</strong>，相关逻辑应该就藏在这里了。</p>
-<p><img src="2.webp" class="lazyload" data-srcset="2.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/2.webp" class="lazyload" data-srcset="/2.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
 <p>放进 IDA 一看，这个 DLL 中确实有不少和 Windows Hello 相关的逻辑，然而点进函数我却发现这个 DLL 除了包含大量遥测、日志代码，还用了 <strong>eXtended Flow Guard</strong>，这直接让部分逻辑的静态分析变得几乎不可能。</p>
 <p>碰到 <code>_guard_xfg_dispatch_icall_fptr()</code> 的时候，如果是调用 GUID 还可以去注册表翻一翻 CLSID，但碰到参数是几个寄存器的时候就只能傻眼了。</p>
-<p><img src="3.webp" class="lazyload" data-srcset="3.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/3.webp" class="lazyload" data-srcset="/3.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
 <p>没办法直接从 UI 逻辑下手，我试图从导入表中找到 WBF 相关内容然后反向追回去，但是却发现这个 DLL 没有 WBF 相关的导入。猜测微软的设计模式和之前那篇分析 2019 的博客中提到的相同，还是把相关的注册组件拆成了一个独立组件。</p>
 <p>除此之外，根据这个 DLL 的逻辑粗略分析，按钮的 <code>SetupOrAddFingerprintSetting::get_IsApplicable()</code> 只是简单的从一个变量里读取了这些信息然后直接返回，而 <code>SetupOrAddFingerprintSetting::get_IsEnabled()</code> 等函数是通过 XFG 动态计算的值。猜测 Windows Server 的相关检测也放到了前文提到的独立组件中，或者在进入设置页面的时候就已经全部计算好了。无论如何，我决定先放弃这个文件，看看能不能找到那个 “独立组件”。</p>
-<h3 id="凭据注册管理器"><a href="#凭据注册管理器" class="headerlink" title="凭据注册管理器"></a>凭据注册管理器</h3><p>花了一点时间把 System32 下带 Enrollment 字样的 DLL/EXE 文件全部翻了一遍，最后我定位到了 <strong>CredentialEnrollmentManager.exe</strong> 这个文件上。</p>
+<h3 id="凭据注册管理器"><a href="#凭据注册管理器" class="headerlink" title="凭据注册管理器"></a>凭据注册管理器</h3><p>花了一点时间把 System32 下带 Enrollment 字样的 DLL&#x2F;EXE 文件全部翻了一遍，最后我定位到了 <strong>CredentialEnrollmentManager.exe</strong> 这个文件上。</p>
 <p>这个 EXE 的标题为 <strong>凭据注册管理器</strong>，关联到服务 <strong>CredentialEnrollmentManagerUserSvc</strong>，并且它在我们进入 <em>登录选项</em> 标签时会被自动启动。加之导入表中有 <code>WinBio</code> 相关的一系列函数以及之前那篇分析 2019 的博客提到的 <code>EnrollPin</code> 函数，我猜测实际的注册逻辑和判断逻辑都在这里。</p>
-<p><img src="4.webp" class="lazyload" data-srcset="4.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
-<p><img src="5.webp" class="lazyload" data-srcset="5.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/4.webp" class="lazyload" data-srcset="/4.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/5.webp" class="lazyload" data-srcset="/5.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
 <h3 id="PIN-注册判断"><a href="#PIN-注册判断" class="headerlink" title="PIN 注册判断"></a>PIN 注册判断</h3><p>从之前在普通 Windows 10 中配置指纹的经验来看，还是必须有 PIN 才能设置指纹，所以这里先研究 PIN 的注册判断逻辑 (事实证明这个决定非常正确)。</p>
 <p>根据函数名一个一个看，排除掉 <code>PinEnrollment::v_IsSupported()</code> 后很快我们就看到了 <code>PinEnrollment::v_CanEnroll()</code> 这个很明显是某种判断的函数。调试一下，很容易发现前面两个对自身变量的判断是通过了的，而在 <code>PinEnrollment::CanAddPin()</code> 这里返回了 <code>false</code> 导致我们不能添加 PIN“：</p>
-<p><img src="6.webp" class="lazyload" data-srcset="6.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/6.webp" class="lazyload" data-srcset="/6.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
 <p>追进 <code>PinEnrollment::CanAddPin()</code>，很容易发现第一个判断 <code>this-&gt;byteE8</code> 就没有通过：</p>
-<p><img src="7.webp" class="lazyload" data-srcset="7.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/7.webp" class="lazyload" data-srcset="/7.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
 <p>再花一点时间找寻找写这个内存的地方，最后找到了 <code>PinEnrollment::RefreshPolicy()</code> 这个函数。仔细一看，上面大多是一些读取用户配置、组策略配置之类的内容，而往下翻我们很快就看到了一个重要的判断 <code>!IsOS(0x1Du)</code>：</p>
-<p><img src="8.webp" class="lazyload" data-srcset="8.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/8.webp" class="lazyload" data-srcset="/8.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
 <p>这个 <code>IsOS</code> 是什么东西呢？让我们看看 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/win32/api/shlwapi/nf-shlwapi-isos">Win32 API 文档</a>：</p>
 <details blue quote><summary> IsOS function (shlwapi.h) </summary>
               <div class='content'>
-              <p>Checks for specified operating systems and operating system features.</p><p><strong>dwOS</strong>: A value that specifies which operating system or operating system feature to check for. One of the following values (you cannot combine values).</p><p><strong>Return value</strong>: Returns a nonzero value if the specified operating system or operating system feature is detected, otherwise FALSE.</p><p><img src="10.webp" class="lazyload" data-srcset="10.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+              <p>Checks for specified operating systems and operating system features.</p><p><strong>dwOS</strong>: A value that specifies which operating system or operating system feature to check for. One of the following values (you cannot combine values).</p><p><strong>Return value</strong>: Returns a nonzero value if the specified operating system or operating system feature is detected, otherwise FALSE.</p><p><img src="/10.webp" class="lazyload" data-srcset="/10.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
               </div>
             </details>
 
 <p>再结合这里传入的 <code>0x1D</code> 分析，很明显这就是我们要找的判断了。</p>
 <h3 id="打补丁"><a href="#打补丁" class="headerlink" title="打补丁"></a>打补丁</h3><p>用 IDA 打一个简单的补丁 (如果你喜欢，这里换成 jnz 也行)：</p>
-<p><img src="11.webp" class="lazyload" data-srcset="11.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/11.webp" class="lazyload" data-srcset="/11.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
 <p>然后我们覆盖一下文件并杀掉之前的进程，重新进入 <em>登录选项</em> 标签，添加 PIN 的按钮就可以正常使用了。除此之外，添加指纹的组件也可以正常工作，看起来这个 Policy 判断是针对 Windows Hello 而不是单纯针对 PIN 的。</p>
-<p><img src="12.webp" class="lazyload" data-srcset="12.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
+<p><img src="/12.webp" class="lazyload" data-srcset="/12.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p>
 <div class="note "><p><strong>注意事项：文件权限</strong></p><p>覆盖文件的过程中可能会碰到权限问题，你可以通过 <a target="_blank" rel="noopener" href="https://github.com/M2Team/NSudo">NSudo</a> 拉起一个 <strong>TrustedInstaller</strong> 权限的命令提示符完成覆盖操作。</p><p>为了确保操作系统的安全性不受破坏，你应该使用 <code>icacls /save</code> 命令来备份 <strong>CredentialEnrollmentManager.exe</strong> 的 ACL 并在替换完成后使用 <code>icacls /restore</code> 进行还原。</p><p>当然，你也可以选择手动设置 ACL，条条大路通罗马。</p></div>
 
 
 <h3 id="修改好的文件"><a href="#修改好的文件" class="headerlink" title="修改好的文件"></a>修改好的文件</h3><p>如果你手上没有 IDA 或者不想自己动手，也可以直接使用我修改好的 <strong>CredentialEnrollmentManager.exe</strong>：</p>
-<span class='btn large'><a class="button" href='CredentialEnrollmentManager_patched.zip' title='点击下载 (2021-10-17)'><i class='fa fa-download'></i>点击下载 (2021-10-17)</a></span>
+<span class='btn large'><a class="button" href='CredentialEnrollmentManager_patched_10.0.20348.1194.zip' title='点击下载 (2022-12-06)'><i class='fa fa-download'></i>点击下载 (2022-12-06)</a></span>
 
 <p>我不能保证这个文件一定能工作，也不能保证它不会损坏你的计算机，你将需要自行承担可能存在的风险。如果你同意承担此风险，我会告诉你解压密码是小写的 <code>xwtf</code>。</p>
-<div class="note warning"><p><strong>注意事项：管理员账户</strong></p><p>Windows Server 的内建 Administrator 账户并不支持配置指纹解锁。如果你尝试进行配置，就会碰到这样的错误：</p><p><img src="13.webp" class="lazyload" data-srcset="13.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p><p>日常使用 Administrator 账户也不是一个好习惯，建立一个独立的 <em>User + Administrators</em> 组账户就可以使用指纹解锁了。</p><p><img src="14.webp" class="lazyload" data-srcset="14.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p></div>
+<div class="note warning"><p><strong>注意事项：管理员账户</strong></p><p>Windows Server 的内建 Administrator 账户并不支持配置指纹解锁。如果你尝试进行配置，就会碰到这样的错误：</p><p><img src="/13.webp" class="lazyload" data-srcset="/13.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p><p>日常使用 Administrator 账户也不是一个好习惯，建立一个独立的 <em>User + Administrators</em> 组账户就可以使用指纹解锁了。</p><p><img src="/14.webp" class="lazyload" data-srcset="/14.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></p></div>
 
 
   </div>
@@ -2359,10 +2359,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2021-12-15T11:34:05+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-12-06T12:24:39+08:00">
   <a class='notlink' href="/" onclick="return false;" title="Click me!" >
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于 2021-12-15</p>
+    <p>更新于 2022-12-06</p>
   </a>
 </div>
 
@@ -2603,8 +2603,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1639548222559')
-      volantis.js('/js/message.js?time=1639548222559', () => {
+      volantis.css('/css/message.css?time=1670300871588')
+      volantis.js('/js/message.js?time=1670300871588', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2649,8 +2649,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1639548222559')
-      volantis.js('/js/message.js?time=1639548222559', () => {
+      volantis.css('/css/message.css?time=1670300871588')
+      volantis.js('/js/message.js?time=1670300871588', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -2709,8 +2709,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1639548222559')
-      volantis.js('/js/message.js?time=1639548222559', () => {
+      volantis.css('/css/message.css?time=1670300871588')
+      volantis.js('/js/message.js?time=1670300871588', () => {
         hideMessage(done);
       });
     } else {
@@ -2813,7 +2813,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       volantis.APlayerController = {};
     
-    volantis.js('/js/rightMenu.js?time=1639548222559')
+    volantis.js('/js/rightMenu.js?time=1670300871588')
   </script>
 
 
@@ -2827,19 +2827,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1639548222559")
+        volantis.js("/js/plugins/sites.js?time=1670300871588")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1639548222559")
+        volantis.js("/js/plugins/friends.js?time=1670300871588")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1639548222559")
+        volantis.js("/js/plugins/contributors.js?time=1670300871588")
       }
     
   };
@@ -2906,7 +2906,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<script src="/js/app.js?time=1639548222559.js"></script>
+<script src="/js/app.js?time=1670300871588.js"></script>
 
 
 <!-- optional -->
@@ -2919,7 +2919,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1639548222559");
+    return volantis.js("/js/search/hexo.js?time=1670300871588");
   }
 
   function loadSearchService() {
@@ -3166,7 +3166,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/","name":"给 Windows Server 2022 配置 Windows Hello 指纹解锁"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给 Windows Server 2022 配置 Windows Hello 指纹解锁","description":"","datePublished":"2021-09-23T11:00:00.000Z","dateModified":"2021-12-15T03:34:05.425Z","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/","wordCount":0,"keywords":"Windows Hello,指纹解锁,Windows Server","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/","name":"给 Windows Server 2022 配置 Windows Hello 指纹解锁"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给 Windows Server 2022 配置 Windows Hello 指纹解锁","description":"","datePublished":"2021-09-23T11:00:00.000Z","dateModified":"2022-12-06T04:24:39.761Z","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/","wordCount":0,"keywords":"Windows Hello,指纹解锁,Windows Server","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->
