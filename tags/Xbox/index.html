@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,default">
-    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.7.7'>
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.8.0'>
   <meta name="generator" content="Hexo 6.3.0">
-  <meta name="Volantis" content="5.7.7">
+  <meta name="Volantis" content="5.8.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <meta name="robots" content="noindex,follow">
@@ -25,7 +25,9 @@
   <!-- Custom Files headBegin begin-->
   
   <!-- Custom Files headBegin end-->
-  <link rel="preload" href="/css/style.css" as="style">
+  <!-- front-matter head_begin begin -->
+  <!-- front-matter head_begin end -->
+  <link rel="preload" href="../../css/style.css" as="style">
   <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
@@ -111,13 +113,13 @@ html >::-webkit-scrollbar-track-piece {
   background: transparent;
 }
 html >::-webkit-scrollbar-thumb {
-  background: #3dd9b6;
+  background: #54b5a0 linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
   cursor: pointer;
   border-radius: 2px;
   -webkit-border-radius: 2px;
 }
 html >::-webkit-scrollbar-thumb:hover {
-  background: #ff5722;
+  background: #54b5a0 linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
 }
 body {
   background-color: var(--color-site-body);
@@ -1547,8 +1549,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  <link rel="stylesheet" href="../../css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="../../css/style.css"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1620,9 +1622,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   volantis.GLOBAL_CONFIG ={
     debug: "env",
-    cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
+    cdn: {"js":{"app":"../../js/app.js","parallax":"../../js/plugins/parallax.js","rightMenu":"../../js/plugins/rightMenu.js","rightMenus":"../../js/plugins/rightMenus.js","sites":"../../js/plugins/tags/sites.js","friends":"../../js/plugins/tags/friends.js","contributors":"../../js/plugins/tags/contributors.js","search":"../../js/search/hexo.js"},"css":{"style":"../../css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1670301512282),
+    lastupdate: new Date(1683967183824),
     sidebar: {
       for_page: ["blogger","category","tagcloud"],
       for_post: ["toc"],
@@ -2046,6 +2048,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files headEnd begin-->
   
   <!-- Custom Files headEnd end-->
+  <!-- front-matter head_end begin -->
+  <!-- front-matter head_end end -->
 </head>
   <body itemscope itemtype="http://schema.org/WebPage">
     <!-- import body_begin begin-->
@@ -2053,6 +2057,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
+    <!-- front-matter body_begin begin -->
+    <!-- front-matter body_begin end -->
     <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
@@ -2068,7 +2074,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		<div class="nav-main">
       
         
-        <a class="title flat-box" target="_self" href='/'>
+        <a class="title flat-box" target="_self" href='../../index.html'>
           
           
           
@@ -2086,11 +2092,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="博客"
+                href="../../index.html" title="博客"
                   
                   
                   
-                    active-action="action-home"
+                    active-action="action-indexhtml"
                   >
                   <i class='fas fa-rss fa-fw'></i>博客
                 </a>
@@ -2103,7 +2109,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="分类"
+                href="../../categories/" title="分类"
                   
                   
                   
@@ -2120,11 +2126,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/tags/" title="标签"
+                href="../" title="标签"
                   
                   
                   
-                    active-action="action-tags"
+                    active-action="action-home"
                   >
                   <i class='fas fa-tags fa-fw'></i>标签
                 </a>
@@ -2137,7 +2143,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/archives/" title="归档"
+                href="../../archives/" title="归档"
                   
                   
                   
@@ -2154,7 +2160,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/about/" title="关于"
+                href="../../about/" title="关于"
                   
                   
                   
@@ -2190,11 +2196,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="博客"
+                href="../../index.html" title="博客"
                   
                   
                   
-                    active-action="action-home"
+                    active-action="action-indexhtml"
                   >
                   <i class='fas fa-rss fa-fw'></i>博客
                 </a>
@@ -2207,7 +2213,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="分类"
+                href="../../categories/" title="分类"
                   
                   
                   
@@ -2224,11 +2230,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/tags/" title="标签"
+                href="../" title="标签"
                   
                   
                   
-                    active-action="action-tags"
+                    active-action="action-home"
                   >
                   <i class='fas fa-tags fa-fw'></i>标签
                 </a>
@@ -2241,7 +2247,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/archives/" title="归档"
+                href="../../archives/" title="归档"
                   
                   
                   
@@ -2258,7 +2264,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/about/" title="关于"
+                href="../../about/" title="关于"
                   
                   
                   
@@ -2338,7 +2344,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/xbox-gamepad-driver-for-windows-server/"  itemprop="url">
+      <a href="../../2021/xbox-gamepad-driver-for-windows-server/"  itemprop="url">
         给 Windows Server 移植 Xbox 手柄驱动
       </a>
     </h2>
@@ -2361,7 +2367,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/2021/xbox-gamepad-driver-for-windows-server/' itemprop="url">
+          <a class='readmore' href='../../2021/xbox-gamepad-driver-for-windows-server/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2395,7 +2401,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='content'>
     
       
-        <a class='avatar flat-box circle' href='/about/'>
+        <a class='avatar flat-box circle' href='../../about/'>
           <img no-lazy src='https://gravatar.globalslb.net/avatar/f7843355b72d4af2bbf0b4c020f299c2?s=128'/>
         </a>
       
@@ -2416,7 +2422,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div class="social-wrapper">
         
           
-            <a href="mailto:e@x.wtf"
+            <a href="../../mailto:e@x.wtf"
               class="social fas fa-envelope flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -2473,7 +2479,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/Bluetooth/" style="font-size: 14px; color: #999">Bluetooth</a> <a href="/tags/Driver/" style="font-size: 14px; color: #999">Driver</a> <a href="/tags/Windows-Hello/" style="font-size: 14px; color: #999">Windows Hello</a> <a href="/tags/Windows-Server/" style="font-size: 24px; color: #555">Windows Server</a> <a href="/tags/Xbox/" style="font-size: 14px; color: #999">Xbox</a> <a href="/tags/%E6%8C%87%E7%BA%B9%E8%A7%A3%E9%94%81/" style="font-size: 14px; color: #999">指纹解锁</a>
+      <a href="../Blu-ray/" style="font-size: 14px; color: #999">Blu-ray</a> <a href="../Bluetooth/" style="font-size: 14px; color: #999">Bluetooth</a> <a href="../Driver/" style="font-size: 14px; color: #999">Driver</a> <a href="../LibreDrive/" style="font-size: 14px; color: #999">LibreDrive</a> <a href="../UHD/" style="font-size: 14px; color: #999">UHD</a> <a href="../Windows-Hello/" style="font-size: 14px; color: #999">Windows Hello</a> <a href="../Windows-Server/" style="font-size: 24px; color: #555">Windows Server</a> <a href="" style="font-size: 14px; color: #999">Xbox</a> <a href="../%E6%8C%87%E7%BA%B9%E8%A7%A3%E9%94%81/" style="font-size: 14px; color: #999">指纹解锁</a>
     </div>
   </section>
 
@@ -2554,7 +2560,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="social-wrapper" itemprop="about" itemscope itemtype="http://schema.org/Thing">
           
             
-              <a href="mailto:e@x.wtf"
+              <a href="../../mailto:e@x.wtf"
                 class="social fas fa-envelope flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer" itemprop="url">
@@ -2631,7 +2637,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <!-- internal -->
 
-<script src="/js/app.js"></script>
+<script src="../../../../js/app.js"></script>
 
 
 
@@ -2695,7 +2701,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
     </ul>
   </div>
-  <script>volantis.js('/js/plugins/rightMenu.js')</script>
+  <script>volantis.js('../../js/plugins/rightMenu.js')</script>
 
 
 
@@ -2710,19 +2716,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/tags/sites.js")
+        volantis.js("../../js/plugins/tags/sites.js")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/tags/friends.js")
+        volantis.js("../../js/plugins/tags/friends.js")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/tags/contributors.js")
+        volantis.js("../../js/plugins/tags/contributors.js")
       }
     
   };
@@ -2800,7 +2806,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js");
+    return volantis.js("../../js/search/hexo.js");
   }
 
   function loadSearchService() {
@@ -3133,5 +3139,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyEnd begin-->
     
     <!-- Custom Files bodyEnd end-->
+    <!-- front-matter body_end begin -->
+    <!-- front-matter body_end end -->
   </body>
 </html>

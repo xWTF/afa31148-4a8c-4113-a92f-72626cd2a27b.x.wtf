@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2023/asus-bw16d1h-u-modding/</loc>
+    
+    <lastmod>2023-05-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/fingerprint-unlocking-for-windows-server-2022/</loc>
     
     <lastmod>2022-12-06</lastmod>
@@ -58,50 +67,71 @@
 
   <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/</loc>
-    <lastmod>2022-12-06</lastmod>
+    <lastmod>2023-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/Blu-ray/</loc>
+    <lastmod>2023-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/UHD/</loc>
+    <lastmod>2023-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/LibreDrive/</loc>
+    <lastmod>2023-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/Windows-Server/</loc>
-    <lastmod>2022-12-06</lastmod>
+    <lastmod>2023-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/Windows-Hello/</loc>
-    <lastmod>2022-12-06</lastmod>
+    <lastmod>2023-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/%E6%8C%87%E7%BA%B9%E8%A7%A3%E9%94%81/</loc>
-    <lastmod>2022-12-06</lastmod>
+    <lastmod>2023-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/Xbox/</loc>
-    <lastmod>2022-12-06</lastmod>
+    <lastmod>2023-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/Bluetooth/</loc>
-    <lastmod>2022-12-06</lastmod>
+    <lastmod>2023-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/tags/Driver/</loc>
-    <lastmod>2022-12-06</lastmod>
+    <lastmod>2023-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

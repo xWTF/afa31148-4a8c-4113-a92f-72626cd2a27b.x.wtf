@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,default">
-    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.7.7'>
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.8.0'>
   <meta name="generator" content="Hexo 6.3.0">
-  <meta name="Volantis" content="5.7.7">
+  <meta name="Volantis" content="5.8.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <meta name="robots" content="index,follow">
@@ -25,6 +25,8 @@
   <!-- Custom Files headBegin begin-->
   
   <!-- Custom Files headBegin end-->
+  <!-- front-matter head_begin begin -->
+  <!-- front-matter head_begin end -->
   <link rel="preload" href="/css/style.css" as="style">
   <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
@@ -111,13 +113,13 @@ html >::-webkit-scrollbar-track-piece {
   background: transparent;
 }
 html >::-webkit-scrollbar-thumb {
-  background: #3dd9b6;
+  background: #54b5a0 linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
   cursor: pointer;
   border-radius: 2px;
   -webkit-border-radius: 2px;
 }
 html >::-webkit-scrollbar-thumb:hover {
-  background: #ff5722;
+  background: #54b5a0 linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
 }
 body {
   background-color: var(--color-site-body);
@@ -1622,7 +1624,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1670301512282),
+    lastupdate: new Date(1683967183824),
     sidebar: {
       for_page: ["blogger","category","tagcloud"],
       for_post: ["toc"],
@@ -2046,6 +2048,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files headEnd begin-->
   
   <!-- Custom Files headEnd end-->
+  <!-- front-matter head_end begin -->
+  <!-- front-matter head_end end -->
 </head>
   <body itemscope itemtype="http://schema.org/WebPage">
     <!-- import body_begin begin-->
@@ -2053,6 +2057,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
+    <!-- front-matter body_begin begin -->
+    <!-- front-matter body_begin end -->
     <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
@@ -2068,7 +2074,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		<div class="nav-main">
       
         
-        <a class="title flat-box" target="_self" href='/'>
+        <a class="title flat-box" target="_self" href='index.html'>
           
           
           
@@ -2086,11 +2092,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="博客"
+                href="index.html" title="博客"
                   
                   
                   
-                    active-action="action-home"
+                    active-action="action-indexhtml"
                   >
                   <i class='fas fa-rss fa-fw'></i>博客
                 </a>
@@ -2103,7 +2109,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="分类"
+                href="categories/" title="分类"
                   
                   
                   
@@ -2120,7 +2126,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/tags/" title="标签"
+                href="tags/" title="标签"
                   
                   
                   
@@ -2137,7 +2143,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/archives/" title="归档"
+                href="archives/" title="归档"
                   
                   
                   
@@ -2154,7 +2160,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/about/" title="关于"
+                href="about/" title="关于"
                   
                   
                   
@@ -2190,11 +2196,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="博客"
+                href="index.html" title="博客"
                   
                   
                   
-                    active-action="action-home"
+                    active-action="action-indexhtml"
                   >
                   <i class='fas fa-rss fa-fw'></i>博客
                 </a>
@@ -2207,7 +2213,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="分类"
+                href="categories/" title="分类"
                   
                   
                   
@@ -2224,7 +2230,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/tags/" title="标签"
+                href="tags/" title="标签"
                   
                   
                   
@@ -2241,7 +2247,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/archives/" title="归档"
+                href="archives/" title="归档"
                   
                   
                   
@@ -2258,7 +2264,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/about/" title="关于"
+                href="about/" title="关于"
                   
                   
                   
@@ -2323,9 +2329,68 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2023/asus-bw16d1h-u-modding/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xWTF Blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="xWTF Blog">
+    <meta itemprop="description" content="">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="2023/asus-bw16d1h-u-modding/"  itemprop="url">
+        将 BW-16D1H-U 改装为 BW-16D1HT 并启用 LibreDrive
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        华硕的 BW-16D1H-U USB 蓝光光驱是 ITX&#x2F;mATX 用户播放、刻录蓝光光盘的优秀桌面解决方案之一，数年使用下来体验都不错。
+不过，BW-16D1H-U 并不能读取 UHD 碟片，甚至无法读取 BDXL 格式的蓝光。为了解决这些读取需求，同时继续使用 BW-16D1H-U 这个不错的外壳，我决定使用 BW-16D1HT 对其进行升级。
+这里记述的操作均为我的个人经验，...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2023-05-13T12:00:00+08:00">2023-05-13</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='2023/asus-bw16d1h-u-modding/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -2348,7 +2413,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/xbox-gamepad-driver-for-windows-server/"  itemprop="url">
+      <a href="2021/xbox-gamepad-driver-for-windows-server/"  itemprop="url">
         给 Windows Server 移植 Xbox 手柄驱动
       </a>
     </h2>
@@ -2371,7 +2436,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/2021/xbox-gamepad-driver-for-windows-server/' itemprop="url">
+          <a class='readmore' href='2021/xbox-gamepad-driver-for-windows-server/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2405,7 +2470,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/fingerprint-unlocking-for-windows-server-2022/"  itemprop="url">
+      <a href="2021/fingerprint-unlocking-for-windows-server-2022/"  itemprop="url">
         给 Windows Server 2022 配置 Windows Hello 指纹解锁
       </a>
     </h2>
@@ -2428,7 +2493,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/2021/fingerprint-unlocking-for-windows-server-2022/' itemprop="url">
+          <a class='readmore' href='2021/fingerprint-unlocking-for-windows-server-2022/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2462,7 +2527,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/hello-world/"  itemprop="url">
+      <a href="2021/hello-world/"  itemprop="url">
         Hello World
       </a>
     </h2>
@@ -2484,7 +2549,7 @@ Qu...
       </div>
       
         <div>
-          <a class='readmore' href='/2021/hello-world/' itemprop="url">
+          <a class='readmore' href='2021/hello-world/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2594,7 +2659,7 @@ Qu...
 
 
     <div class='content'>
-      <a href="/tags/Bluetooth/" style="font-size: 14px; color: #999">Bluetooth</a> <a href="/tags/Driver/" style="font-size: 14px; color: #999">Driver</a> <a href="/tags/Windows-Hello/" style="font-size: 14px; color: #999">Windows Hello</a> <a href="/tags/Windows-Server/" style="font-size: 24px; color: #555">Windows Server</a> <a href="/tags/Xbox/" style="font-size: 14px; color: #999">Xbox</a> <a href="/tags/%E6%8C%87%E7%BA%B9%E8%A7%A3%E9%94%81/" style="font-size: 14px; color: #999">指纹解锁</a>
+      <a href="tags/Blu-ray/" style="font-size: 14px; color: #999">Blu-ray</a> <a href="tags/Bluetooth/" style="font-size: 14px; color: #999">Bluetooth</a> <a href="tags/Driver/" style="font-size: 14px; color: #999">Driver</a> <a href="tags/LibreDrive/" style="font-size: 14px; color: #999">LibreDrive</a> <a href="tags/UHD/" style="font-size: 14px; color: #999">UHD</a> <a href="tags/Windows-Hello/" style="font-size: 14px; color: #999">Windows Hello</a> <a href="tags/Windows-Server/" style="font-size: 24px; color: #555">Windows Server</a> <a href="tags/Xbox/" style="font-size: 14px; color: #999">Xbox</a> <a href="tags/%E6%8C%87%E7%BA%B9%E8%A7%A3%E9%94%81/" style="font-size: 14px; color: #999">指纹解锁</a>
     </div>
   </section>
 
@@ -3255,5 +3320,7 @@ Qu...
     <!-- Custom Files bodyEnd begin-->
     
     <!-- Custom Files bodyEnd end-->
+    <!-- front-matter body_end begin -->
+    <!-- front-matter body_end end -->
   </body>
 </html>
