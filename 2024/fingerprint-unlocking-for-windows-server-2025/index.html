@@ -44,8 +44,8 @@
 <meta property="og:description" content="Windows Server 2025 发布了，不过我在升级后发现 Windows Hello 仍然是用不了的，甚至在登录选项中只有 密码登录 一项，连 Windows Hello 相关的选项本身都消失了：  尝试按照 上一篇博客 的流程进行配置时发现相关登录选项并没有被加回来，无奈只好拖出 IDA 重新研究一下。 初步分析由于这次连相关登录选项都被隐藏了，首先在 AllSystemSetting">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2024-12-02T15:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-02T17:13:19.912Z">
+<meta property="article:published_time" content="2024-12-02T17:21:00.000Z">
+<meta property="article:modified_time" content="2024-12-02T17:21:59.793Z">
 <meta property="article:author" content="xWTF">
 <meta property="article:tag" content="Windows Server">
 <meta property="article:tag" content="Windows Hello">
@@ -1631,7 +1631,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"../../js/app.js","parallax":"../../js/plugins/parallax.js","rightMenu":"../../js/plugins/rightMenu.js","rightMenus":"../../js/plugins/rightMenus.js","sites":"../../js/plugins/tags/sites.js","friends":"../../js/plugins/tags/friends.js","contributors":"../../js/plugins/tags/contributors.js","search":"../../js/search/hexo.js"},"css":{"style":"../../css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1733159625015),
+    lastupdate: new Date(1733160123320),
     sidebar: {
       for_page: ["blogger","category","tagcloud"],
       for_post: ["toc"],
@@ -2348,10 +2348,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2024-12-02T23:00:00+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2024-12-03T01:21:00+08:00">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>2024-12-02</p>
+    <p>2024-12-03</p>
   </a>
 </div>
 
@@ -2398,9 +2398,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>由于我们的重点还是放在 PIN 注册而不是生物识别上，这里再搜索 PinSetting 进行检查。转了一圈发现在 <code>get_IsApplicable</code> 函数中有一个名字就相当可疑的 <code>BugFix_HidingWindowsHelloInServerSku</code> Feature 检查：</p>
 <p><img src="3.webp" class="lazyload" data-srcset="3.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>通过挂调试器直接修改 <code>get_IsApplicable</code> 的返回可以恢复显示相关选项，所以可以确认就是这部分逻辑隐藏的。</p>
-<p>从这个名字的字面意思看，微软大概是认为 Windows Server 里显示普通 Windows Hello 登录选项属于一个 BUG，所以在 Server 2025 系统中直接把对应选项隐藏掉了。继续往下追可以发现这个 Feature 的 ID 是 <code>49406258</code>”：</p>
+<p>从这个名字的字面意思看，微软大概是认为 Windows Server 里显示普通 Windows Hello 登录选项属于一个 BUG，所以在 Server 2025 系统中直接把对应选项隐藏掉了。继续往下追可以发现这个 Feature 的 ID 是 <code>49406258</code>：</p>
 <p><img src="4.webp" class="lazyload" data-srcset="4.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>遗憾的是，我尝试直接通过 ViveTool 覆盖掉这个 Feature 并不能让相关选项显示出来。从代码逻辑上看，这个 Feature 更像是测试时用来隐藏这些选项看效果的，并不是字面意思上的 “启用后在 Server 系统里隐藏。</p>
+<p>遗憾的是，我尝试直接通过 ViveTool 覆盖掉这个 Feature 并不能让相关选项显示出来。从代码逻辑上看，这个 Feature 更像是测试时用来隐藏这些选项看效果的，并不是字面意思上的 “启用后在 Server 系统里隐藏”。</p>
 <p>后面我也尝试过注入 DLL 挂 <code>IsOS</code> 的钩子绕过这个检查，但不知道为什么在 Server 2022 测试成功的钩子放到 2025 后就无法触发了，不管我是挂 <code>SHCore</code> 还是挂 <code>api-ms-win-shcore-sysinfo-l1-1-0</code> 都不行，遂放弃此方案：</p>
 <p><img src="5.webp" class="lazyload" data-srcset="5.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>本来想尽可能减小对系统文件的修改，但是搞了一整天还是没解决，只好回到最原始的方案，直接 Patch 掉相关逻辑:</p>
@@ -2495,7 +2495,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-12-03T01:13:19+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-12-03T01:21:59+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于 2024-12-03</p>
@@ -3161,7 +3161,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/","name":"给 Windows Server 2025 配置 Windows Hello 指纹解锁"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","keywords":null,"description":null,"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","description":null},"publisher":{"@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给 Windows Server 2025 配置 Windows Hello 指纹解锁","description":null,"inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/","wordCount":0,"datePublished":"2024-12-02T15:00:00.000Z","dateModified":"2024-12-02T17:13:19.912Z","keywords":"Windows Server,Windows Hello,指纹解锁","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/","name":"给 Windows Server 2025 配置 Windows Hello 指纹解锁"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","keywords":null,"description":null,"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","description":null},"publisher":{"@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给 Windows Server 2025 配置 Windows Hello 指纹解锁","description":null,"inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/","wordCount":0,"datePublished":"2024-12-02T17:21:00.000Z","dateModified":"2024-12-02T17:21:59.793Z","keywords":"Windows Server,Windows Hello,指纹解锁","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
