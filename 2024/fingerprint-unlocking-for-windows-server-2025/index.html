@@ -5,8 +5,8 @@
   <meta name="Volantis" content="5.8.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/2021/12/"/>
+  
+  <link rel="canonical" href="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -27,22 +27,29 @@
   <!-- Custom Files headBegin end-->
   <!-- front-matter head_begin begin -->
   <!-- front-matter head_begin end -->
-  <link rel="preload" href="../../../css/style.css" as="style">
+  <link rel="preload" href="../../css/style.css" as="style">
   <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>归档：2021/12 - xWTF Blog</title>
-  <meta name="keywords" content="null">
+  <title>给 Windows Server 2025 配置 Windows Hello 指纹解锁 - xWTF Blog</title>
+  <meta name="keywords" content="Windows Server,Windows Hello,指纹解锁,null">
   <meta desc name="description" content="xWTF Blog - xWTF - xWTF Blog">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="xWTF Blog">
-<meta property="og:url" content="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/2021/12/index.html">
+  
+<meta property="og:type" content="article">
+<meta property="og:title" content="给 Windows Server 2025 配置 Windows Hello 指纹解锁">
+<meta property="og:url" content="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/index.html">
 <meta property="og:site_name" content="xWTF Blog">
+<meta property="og:description" content="Windows Server 2025 发布了，不过我在升级后发现 Windows Hello 仍然是用不了的，甚至在登录选项中只有 密码登录 一项，连 Windows Hello 相关的选项本身都消失了：  尝试按照 上一篇博客 的流程进行配置时发现相关登录选项并没有被加回来，无奈只好拖出 IDA 重新研究一下。 初步分析由于这次连相关登录选项都被隐藏了，首先在 AllSystemSetting">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2024-12-02T15:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-02T17:13:19.912Z">
 <meta property="article:author" content="xWTF">
+<meta property="article:tag" content="Windows Server">
+<meta property="article:tag" content="Windows Hello">
+<meta property="article:tag" content="指纹解锁">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1549,8 +1556,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="../../../css/style.css" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="../../../css/style.css"></noscript>
+  <link rel="stylesheet" href="../../css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="../../css/style.css"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1622,7 +1629,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   volantis.GLOBAL_CONFIG ={
     debug: "env",
-    cdn: {"js":{"app":"../../../js/app.js","parallax":"../../../js/plugins/parallax.js","rightMenu":"../../../js/plugins/rightMenu.js","rightMenus":"../../../js/plugins/rightMenus.js","sites":"../../../js/plugins/tags/sites.js","friends":"../../../js/plugins/tags/friends.js","contributors":"../../../js/plugins/tags/contributors.js","search":"../../../js/search/hexo.js"},"css":{"style":"../../../css/style.css"}},
+    cdn: {"js":{"app":"../../js/app.js","parallax":"../../js/plugins/parallax.js","rightMenu":"../../js/plugins/rightMenu.js","rightMenus":"../../js/plugins/rightMenus.js","sites":"../../js/plugins/tags/sites.js","friends":"../../js/plugins/tags/friends.js","contributors":"../../js/plugins/tags/contributors.js","search":"../../js/search/hexo.js"},"css":{"style":"../../css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
     lastupdate: new Date(1733159625015),
     sidebar: {
@@ -2074,7 +2081,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		<div class="nav-main">
       
         
-        <a class="title flat-box" target="_self" href='../../../index.html'>
+        <a class="title flat-box" target="_self" href='../../index.html'>
           
           
           
@@ -2092,7 +2099,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../../index.html" title="博客"
+                href="../../index.html" title="博客"
                   
                   
                   
@@ -2109,7 +2116,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../../categories/" title="分类"
+                href="../../categories/" title="分类"
                   
                   
                   
@@ -2126,7 +2133,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../../tags/" title="标签"
+                href="../../tags/" title="标签"
                   
                   
                   
@@ -2143,11 +2150,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../" title="归档"
+                href="../../archives/" title="归档"
                   
                   
                   
-                    active-action="action-home"
+                    active-action="action-archives"
                   >
                   <i class='fas fa-archive fa-fw'></i>归档
                 </a>
@@ -2160,7 +2167,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../../about/" title="关于"
+                href="../../about/" title="关于"
                   
                   
                   
@@ -2196,7 +2203,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../../index.html" title="博客"
+                href="../../index.html" title="博客"
                   
                   
                   
@@ -2213,7 +2220,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../../categories/" title="分类"
+                href="../../categories/" title="分类"
                   
                   
                   
@@ -2230,7 +2237,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../../tags/" title="标签"
+                href="../../tags/" title="标签"
                   
                   
                   
@@ -2247,11 +2254,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../" title="归档"
+                href="../../archives/" title="归档"
                   
                   
                   
-                    active-action="action-home"
+                    active-action="action-archives"
                   >
                   <i class='fas fa-archive fa-fw'></i>归档
                 </a>
@@ -2264,7 +2271,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="../../../about/" title="关于"
+                href="../../about/" title="关于"
                   
                   
                   
@@ -2294,7 +2301,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  blank' style="display: none;">
+      <div id="none" class='cover-wrapper post blank' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
 
@@ -2309,22 +2316,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-	
-		
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2021/xbox-gamepad-driver-for-windows-server/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="xWTF Blog">
   </span>
@@ -2333,59 +2326,229 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="../../../2021/xbox-gamepad-driver-for-windows-server/"  itemprop="url">
-        给 Windows Server 移植 Xbox 手柄驱动
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      
-        前段时间迁移到了 Windows Server 2022，使用体验还算不错。不过，最近又发现一个新问题：Xbox 手柄没有驱动。
-究其原因，还是 Windows Server 缺少 Xbox 相关的一整套软件，包括 Xbox APP、在线游戏服务、驱动服务等。只要想办法将桌面 Windows 的驱动程序移植过来，就可以正常使用了。
-在 Google 上找了一圈，未能找到可借鉴的资料。这里记述...
-      
     
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+      <h1 class="title" itemprop="name headline">
+        给 Windows Server 2025 配置 Windows Hello 指纹解锁
+      </h1>
+      <div class='new-meta-box'>
         
-        <time itemprop="dateCreated datePublished" datetime="2021-12-15T12:00:00+08:00">2021-12-15</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='../../../2021/xbox-gamepad-driver-for-windows-server/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+          
+            
 
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2024-12-02T23:00:00+08:00">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>2024-12-02</p>
+  </a>
 </div>
 
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：2.2k 字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：7 分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>Windows Server 2025 发布了，不过我在升级后发现 Windows Hello 仍然是用不了的，甚至在登录选项中只有 <strong>密码登录</strong> 一项，连 Windows Hello 相关的选项本身都消失了：</p>
+<p><img src="0.webp" class="lazyload" data-srcset="0.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>尝试按照 <a href="/2021/fingerprint-unlocking-for-windows-server-2022">上一篇博客</a> 的流程进行配置时发现相关登录选项并没有被加回来，无奈只好拖出 IDA 重新研究一下。</p>
+<h3 id="初步分析"><a href="#初步分析" class="headerlink" title="初步分析"></a>初步分析</h3><p>由于这次连相关登录选项都被隐藏了，首先在 AllSystemSettings 定义里面简单翻了翻，寻找这些选项相关的页面。</p>
+<p>通过这个 XML 可以发现，密码、PIN、指纹等设置对应的页面为 <code>SettingsPageSignInOptions</code>：</p>
+<p><img src="1.webp" class="lazyload" data-srcset="1.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>结合之前的逆向经验，这次就直奔 <strong>SettingsHandlers_Authentication.dll</strong> 进行分析。</p>
+<p>直接把这个 Handler 拖进 IDA 搜这个页面 ID 对应的函数，在 <code>SystemSettings::DataModel::CSignInOptionsForDeviceList</code> 可以看到指纹、密码等选项在构建时都被加进 List 了：</p>
+<p><img src="2.webp" class="lazyload" data-srcset="2.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这样就排除了相关选项被删除的可能性，只能是对应的选项被隐藏了。如果相关选项直接被删除了就比较麻烦，可能得直接研究怎么在文件系统里写一份 PIN 和指纹的注册资料。</p>
+<p>由于我们的重点还是放在 PIN 注册而不是生物识别上，这里再搜索 PinSetting 进行检查。转了一圈发现在 <code>get_IsApplicable</code> 函数中有一个名字就相当可疑的 <code>BugFix_HidingWindowsHelloInServerSku</code> Feature 检查：</p>
+<p><img src="3.webp" class="lazyload" data-srcset="3.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>通过挂调试器直接修改 <code>get_IsApplicable</code> 的返回可以恢复显示相关选项，所以可以确认就是这部分逻辑隐藏的。</p>
+<p>从这个名字的字面意思看，微软大概是认为 Windows Server 里显示普通 Windows Hello 登录选项属于一个 BUG，所以在 Server 2025 系统中直接把对应选项隐藏掉了。继续往下追可以发现这个 Feature 的 ID 是 <code>49406258</code>”：</p>
+<p><img src="4.webp" class="lazyload" data-srcset="4.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>遗憾的是，我尝试直接通过 ViveTool 覆盖掉这个 Feature 并不能让相关选项显示出来。从代码逻辑上看，这个 Feature 更像是测试时用来隐藏这些选项看效果的，并不是字面意思上的 “启用后在 Server 系统里隐藏。</p>
+<p>后面我也尝试过注入 DLL 挂 <code>IsOS</code> 的钩子绕过这个检查，但不知道为什么在 Server 2022 测试成功的钩子放到 2025 后就无法触发了，不管我是挂 <code>SHCore</code> 还是挂 <code>api-ms-win-shcore-sysinfo-l1-1-0</code> 都不行，遂放弃此方案：</p>
+<p><img src="5.webp" class="lazyload" data-srcset="5.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>本来想尽可能减小对系统文件的修改，但是搞了一整天还是没解决，只好回到最原始的方案，直接 Patch 掉相关逻辑:</p>
+<p><img src="6.webp" class="lazyload" data-srcset="6.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>对另外几个设置项的函数 (<code>FaceSetting</code>、<code>FingerprintSetting</code>) 如法炮制，再替换一下文件就可以正常看到相关选项了：</p>
+<p><img src="7.webp" class="lazyload" data-srcset="7.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>当然问题没有这么简单，因为选项仍然显示 <code>该设备不符合你组织关于 Windows Hello 的要求</code> 并且不能配置。我们只是回到了 2022 时代的开头。</p>
+<h3 id="又是凭据注册管理器？"><a href="#又是凭据注册管理器？" class="headerlink" title="又是凭据注册管理器？"></a>又是凭据注册管理器？</h3><p>先把设置 UI 放一边不管。根据之前的经验，我们应该先 Patch 一下凭据注册管理器，直接找到 <code>PinEnrollment::SetDisablePinPolicyReason</code> 进行一个 <code>jnz</code> 的改：</p>
+<p><img src="8.webp" class="lazyload" data-srcset="8.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>然后再参考最初找到那篇 Server 2019 的博客把 <code>PinEnrollmentHelper.dll</code> 和 <code>PinEnrollmentBroker.exe</code> 从一个 Windows 11 24H2 系统里拷进系统并设置相关注册表项，再打开那篇博客提供的 PinEnroller 进行注册，就可以看到熟悉的验证密码弹窗：</p>
+<p><img src="9.webp" class="lazyload" data-srcset="9.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>能用了么？并不能，输入密码点确定后这个弹窗就消失了，然后什么都没发生。看来 2025 的问题比之前还复杂，只好继续掏出 IDA，这次加载 <code>PinEnrollmentHelper.dll</code> 挂到这个 PinEnroller 程序上调试。</p>
+<p>用 dnSpyEx 看了一下一下这个程序调的是 <code>EnrollPin</code> 函数，而这个函数里面只有一个跳转，所以我们直接到 <code>EnrollPinHelper</code> 里面下断点往下追，发现追到 <code>AddLocalPin</code> 的 <code>NgcLocalAddCredential</code> 时扔了一个 <code>0x80090010</code> 异常：</p>
+<p><img src="10.webp" class="lazyload" data-srcset="10.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这是什么？对着 MS 文档一阵翻，发现这个错误码是 <code>NTE_PERM</code>，显然是一个权限问题：</p>
+<p><img src="11.webp" class="lazyload" data-srcset="11.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>权限问题是骗人的，折腾了半天发现是因为我用 RDP 连到机器上进行调试，但通过 RDP 是不能配置 PIN 和指纹等登录选项的，会扔这个异常。</p>
+<p>遂搬来显示器，直接到机器上调试，这回换了个错误码，大 ★ 成 ★ 功：</p>
+<p><img src="12.webp" class="lazyload" data-srcset="12.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h3 id="是微软-Passport-Container-哒"><a href="#是微软-Passport-Container-哒" class="headerlink" title="是微软 Passport Container 哒"></a>是微软 Passport Container 哒</h3><p>因为另外几个 dll 没有符号，追到这里就不太能调试下去了，只能重新加载 <code>ngclocal.dll</code> 下 <code>I_NgcLocalAddCredential</code> 断点继续，发现异常是调用 <code>NgcCreateContainer</code> 时出现的：</p>
+<p><img src="13.webp" class="lazyload" data-srcset="13.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>再重新加载 <code>cryptngc.dll</code> 下 <code>I_c_NgcRpcCreateContainer</code> 断点，结果发现异常居然是 <code>NdrClientCall3</code> 丢的，真让人摸不着头脑：</p>
+<p><img src="14.webp" class="lazyload" data-srcset="14.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>又对着 MS 文档一阵翻，发现 <code>0x80073B01</code> <del>是 Windows Update 出错</del> 是 <code>ERROR_MUI_FILE_NOT_LOADED</code>，但是这和我们的 RPC 失败有什么关系？</p>
+<p>百思不得其解，总之先看看调用的是哪个 RPC 服务好了，如此这般如此这般找到了我们的 <code>RpcInterfaceInformation</code> 结构体：</p>
+<p><img src="15.webp" class="lazyload" data-srcset="15.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>再如此这般找到了 RPC 接口的 GUID，肉眼识别可得 <code>30034843-029d-46ec-8fff-5d12987f85c4</code>：</p>
+<p><img src="16.webp" class="lazyload" data-srcset="16.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>那么这个 GUID 对应的是什么接口呢？到注册表里简单搜一下就发现是 <code>NgcCtnrSvc</code> 了：</p>
+<p><img src="17.webp" class="lazyload" data-srcset="17.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>当然简单搜一下也是骗人的，真实情况是我把系统的 RPC Endpoint 翻了个底朝天也没找到，最后把整个注册表导出来把服务一个一个看过去才发现的。</p>
+<p>总之让我们看看这个服务有什么毛病吧，乍一看好像挺正常的，他甚至正在运行：</p>
+<p><img src="18.webp" class="lazyload" data-srcset="18.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>到这里我更搞不懂了，因为看起来所有东西都是正常的，<code>sc</code> 查询服务状态和控制服务都没有问题。前前后后又折腾了半天，RPC 调用还是同样的报错。</p>
+<h3 id="服务装了，但没完全装"><a href="#服务装了，但没完全装" class="headerlink" title="服务装了，但没完全装"></a>服务装了，但没完全装</h3><p>在我放弃之前打开 <code>services.msc</code> 看了一眼，发现服务的描述符居然没加载出来，并且提示错误代码 <code>15100</code> (<code>ERROR_MUI_FILE_NOT_FOUND</code>)，居然又是 MUI 文件的问题：</p>
+<p><img src="19.webp" class="lazyload" data-srcset="19.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这下我才意识到可能在 Windows Server 2025 里可能对应的 MUI 文件真的没被 MS 放进来，系统里可能只装了 Ngc 服务的注册表和可执行文件，但没装资源文件。</p>
+<p>打开 Windows 11 24H2 一对比果然缺了好多 Ngc 相关的 MUI 文件：</p>
+<p><img src="20.webp" class="lazyload" data-srcset="20.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>把这些文件也进行一个移花接木，再重启 <code>NgcCtnrSvc</code> 服务，运行 PinEnroller，终于可以正常注册 PIN 了：</p>
+<p><img src="21.webp" class="lazyload" data-srcset="21.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>注册 PIN 后到设置里检查，果然添加指纹和面部识别的选项也都可以正常工作（我没有 Windows Hello 摄像头，所以这里只添加了指纹）：</p>
+<p><img src="22.webp" class="lazyload" data-srcset="22.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>总之，这样一来在 Windows Server 2025 上也可以愉快的使用 Windows Hello 进行登录了。</p>
+<p>虽然修改了两个系统文件导致 sfc 或系统更新后可能需要再次修改，但是这是目前我能找到的最好的解决方案。</p>
+<p>配置完成后即使这两个文件被 Windows 更新换回来，也不影响已配置的指纹和 PIN 正常用于解锁。</p>
+<p>理论上，如果能通过注入 DLL 的方式动态的去 Hook 相关函数，可以减小对系统的侵入并避免更新后需要重复 Patch 的问题。</p>
+<p>不过因为 Hook <code>IsOS</code> 函数失败，直接 Hook 检查函数的话又涉及到从 MS 服务器加载符号、解析等诸多问题，我就暂时不打算继续研究了。</p>
+<h3 id="修改好的文件"><a href="#修改好的文件" class="headerlink" title="修改好的文件"></a>修改好的文件</h3><p>按照惯例，如果你手上没有 IDA 或者不想自己动手，我也在这里附上修改后的 <strong>CredentialEnrollmentManager.exe</strong> 和 <strong>SettingsHandlers_Authentication.dll</strong>：</p>
+<span class='btn large'><a class="button" href='WindowsServer2025_Hello_20241203.zip' title='点击下载 (2024-12-03)'><i class='fa fa-download'></i>点击下载 (2024-12-03)</a></span>
+
+<p>我不能保证这个文件一定能工作，也不能保证它不会损坏你的计算机，你将需要自行承担可能存在的风险。如果你同意承担此风险，我会告诉你解压密码是小写的 <code>xwtf</code>。</p>
+<div class="note warning"><p><strong>注意事项</strong></p><p>和之前一样，Windows Server 的内建 Administrator 账户并不支持配置指纹解锁。需要创建一个单独的用户进行配置，如果需要管理员权限请将这个用户加入 Administrators 组。</p><p>覆盖文件的过程中可能会碰到权限问题，可以通过 <a target="_blank" rel="noopener" href="https://github.com/M2Team/NSudo">NSudo</a> 拉起一个 <strong>TrustedInstaller</strong> 权限的命令提示符完成覆盖操作。NSudo 在 Windows 11 24H2 下不工作，但是在 Windows Server 2025 是可以正常提权的。</p><p>同样，为了确保操作系统的安全性不受破坏，你应该使用 <code>icacls /save</code> 命令来备份被覆盖的文件并在替换完成后使用 <code>icacls /restore</code> 进行还原。对于新添加的文件最好也如此操作。</p></div>
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+        
+          <div class='copyright'>
+            <blockquote>
+              
+                
+                  <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+                
+              
+                
+                  <p>本文的链接是：<a href="https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/">https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/</a></p>
+                
+              
+            </blockquote>
           </div>
         
       
-    
-  </section>
+      <!-- 打赏组件 -->
+      
+    </div>
+  
   
     
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-12-03T01:13:19+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于 2024-12-03</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="../../tags/Windows-Server/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Windows Server</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="../../tags/Windows-Hello/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Windows Hello</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="../../tags/%E6%8C%87%E7%BA%B9%E8%A7%A3%E9%94%81/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>指纹解锁</p></a></div>
+  <span hidden itemprop="keywords">Windows Server Windows Hello 指纹解锁</span>
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='../../2023/asus-bw16d1h-u-modding/'>
+          <p class='title'>将 BW-16D1H-U 改装为 BW-16D1HT 并启用 LibreDrive<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>华硕的 BW-16D1H-U USB 蓝光光驱是 ITX&#x2F;mATX 用户播放、刻录蓝光光盘的优秀桌面解决方案之一，数年使用下来体验都不错。
+不过，BW-16D1H-U 并不能读取 UH...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
   
 
 
-	
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2394,103 +2557,48 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
-<section class="widget blogger desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='../../../about/'>
-          <img no-lazy src='https://gravatar.globalslb.net/avatar/f7843355b72d4af2bbf0b4c020f299c2?s=128'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>xWTF</h2>
-        
-        
-          <p>24 y.o. student</p>
-
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="../../../mailto:e@x.wtf"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/xWTF"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://t.me/exWTF"
-              class="social fab fa-telegram flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-    
-  
-
-  
-    
-    
-      
-
-    
-  
-
-  
-    
-    
-      
-  
-  <section class="widget tagcloud desktop pjax">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="../../../tags/Blu-ray/" style="font-size: 14px; color: #999">Blu-ray</a> <a href="../../../tags/Bluetooth/" style="font-size: 14px; color: #999">Bluetooth</a> <a href="../../../tags/Driver/" style="font-size: 14px; color: #999">Driver</a> <a href="../../../tags/LibreDrive/" style="font-size: 14px; color: #999">LibreDrive</a> <a href="../../../tags/UHD/" style="font-size: 14px; color: #999">UHD</a> <a href="../../../tags/Windows-Hello/" style="font-size: 19px; color: #777">Windows Hello</a> <a href="../../../tags/Windows-Server/" style="font-size: 24px; color: #555">Windows Server</a> <a href="../../../tags/Xbox/" style="font-size: 14px; color: #999">Xbox</a> <a href="../../../tags/%E6%8C%87%E7%BA%B9%E8%A7%A3%E9%94%81/" style="font-size: 19px; color: #777">指纹解锁</a>
-    </div>
-  </section>
-
-
     
   
 
 
 <div class="widget-sticky pjax">
 
+  
+  
+
+
+  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90"><span class="toc-text">初步分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%88%E6%98%AF%E5%87%AD%E6%8D%AE%E6%B3%A8%E5%86%8C%E7%AE%A1%E7%90%86%E5%99%A8%EF%BC%9F"><span class="toc-text">又是凭据注册管理器？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%AF%E5%BE%AE%E8%BD%AF-Passport-Container-%E5%93%92"><span class="toc-text">是微软 Passport Container 哒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E8%A3%85%E4%BA%86%EF%BC%8C%E4%BD%86%E6%B2%A1%E5%AE%8C%E5%85%A8%E8%A3%85"><span class="toc-text">服务装了，但没完全装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%A5%BD%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-text">修改好的文件</span></a></li></ol>
+    </div>
+  </section>
+
+  
+
 </div>
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -2518,13 +2626,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -2557,7 +2666,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="social-wrapper" itemprop="about" itemscope itemtype="http://schema.org/Thing">
           
             
-              <a href="../../../mailto:e@x.wtf"
+              <a href="../../mailto:e@x.wtf"
                 class="social fas fa-envelope flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer" itemprop="url">
@@ -2634,7 +2743,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <!-- internal -->
 
-<script src="../../../../../../js/app.js"></script>
+<script src="../../../../js/app.js"></script>
 
 
 
@@ -2698,7 +2807,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
     </ul>
   </div>
-  <script>volantis.js('../../../js/plugins/rightMenu.js')</script>
+  <script>volantis.js('../../js/plugins/rightMenu.js')</script>
 
 
 
@@ -2713,19 +2822,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("../../../js/plugins/tags/sites.js")
+        volantis.js("../../js/plugins/tags/sites.js")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("../../../js/plugins/tags/friends.js")
+        volantis.js("../../js/plugins/tags/friends.js")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("../../../js/plugins/tags/contributors.js")
+        volantis.js("../../js/plugins/tags/contributors.js")
       }
     
   };
@@ -2803,7 +2912,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("../../../js/search/hexo.js");
+    return volantis.js("../../js/search/hexo.js");
   }
 
   function loadSearchService() {
@@ -3052,7 +3161,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/","name":"Archive"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/2021/","name":"2021年"}},{"@type":"ListItem","position":4,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/archives/2021/12/","name":"12月"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","keywords":null,"description":null,"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","description":null},"publisher":{"@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":null,"inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","sameAs":["https://github.com/volantis-x"],"description":null},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","name":"xWTF Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/","name":"给 Windows Server 2025 配置 Windows Hello 指纹解锁"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","keywords":null,"description":null,"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","description":null},"publisher":{"@type":"Organization","name":"xWTF Blog","url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给 Windows Server 2025 配置 Windows Hello 指纹解锁","description":null,"inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/"},"author":{"@type":"Person","name":"xWTF","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/"},"publisher":{"@type":"Organization","name":"xWTF Blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://afa31148-4a8c-4113-a92f-72626cd2a27b.x.wtf/2024/fingerprint-unlocking-for-windows-server-2025/","wordCount":0,"datePublished":"2024-12-02T15:00:00.000Z","dateModified":"2024-12-02T17:13:19.912Z","keywords":"Windows Server,Windows Hello,指纹解锁","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
